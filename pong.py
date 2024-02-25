@@ -1,5 +1,6 @@
 import pygame
 import random
+import sys  # To exit the game when a player wins
 
 # Initialize Pygame
 pygame.init()
@@ -19,12 +20,22 @@ right_paddle = pygame.Rect(SCREEN_WIDTH - 50 - PADDLE_WIDTH, (SCREEN_HEIGHT / 2)
 paddle_speed = 6
 
 # Ball settings
-ball_speed_x, ball_speed_y = 4 * random.choice((1, -1)), 4 * random.choice((1, -1))
+# Ball settings with moderately faster speed
+ball_speed_x, ball_speed_y = 3 * random.choice((1, -1)), 3 * random.choice((1, -1))
 ball = pygame.Rect(SCREEN_WIDTH / 2 - 15, SCREEN_HEIGHT / 2 - 15, 30, 30)
 
 # Score
 left_score, right_score = 0, 0
+winning_score = 5  # The score needed to win the game
 font = pygame.font.Font(None, 74)
+
+def display_winner(text):
+    win_text = font.render(text, True, WHITE)
+    screen.blit(win_text, (SCREEN_WIDTH / 2 - win_text.get_width() / 2, SCREEN_HEIGHT / 2 - win_text.get_height() / 2))
+    pygame.display.flip()
+    pygame.time.delay(3000)  # Pause for 3 seconds before closing
+    pygame.quit()
+    sys.exit()
 
 # Main game loop
 running = True
@@ -56,17 +67,21 @@ while running:
     
     # Ball collision with paddles
     if ball.colliderect(left_paddle) or ball.colliderect(right_paddle):
-        ball_speed_x *= -1.1 # Speeds up the ball slightly
+        ball_speed_x *= -1  # Reverses direction without increasing speed
     
-    # Score update
+    # Score update and checking for a winner
     if ball.left <= 0:
         right_score += 1
         ball.center = (SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-        ball_speed_x, ball_speed_y = 7 * random.choice((1, -1)), 7 * random.choice((1, -1))
+        ball_speed_x, ball_speed_y = 2 * random.choice((1, -1)), 2 * random.choice((1, -1))
+        if right_score == winning_score:
+            display_winner("Right Player Wins!")
     if ball.right >= SCREEN_WIDTH:
         left_score += 1
         ball.center = (SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-        ball_speed_x, ball_speed_y = 7 * random.choice((1, -1)), 7 * random.choice((1, -1))
+        ball_speed_x, ball_speed_y = 2 * random.choice((1, -1)), 2 * random.choice((1, -1))
+        if left_score == winning_score:
+            display_winner("Left Player Wins!")
     
     # Drawing
     screen.fill(BLACK)
@@ -83,6 +98,6 @@ while running:
     
     # Updating the window
     pygame.display.flip()
-    clock.tick(60) # 60 FPS
+    clock.tick(60)  # 60 FPS
 
 pygame.quit()
