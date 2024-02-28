@@ -1,3 +1,11 @@
+# Cows and Bulls game
+# Guess a 4-digit number with unique digits to crack the secret code.
+# Each correct digit in the right place earns you a "bull".
+# Every correct digit in the wrong position gets you a "cow".
+# Use the feedback to refine your guesses and crack the code.
+# Win by guessing the secret number with all 4 digits in the correct positions.
+
+
 import random
 
 def generate_secret_number():
@@ -18,4 +26,25 @@ def play_game():
 
     print("Welcome to the Cows and Bulls Game!")
     print("Try to guess the 4-digit number with no repeating digits.")
+
+    while True:
+        guess = input("Enter your guess: ")
+
+        if len(guess) != 4 or not guess.isdigit() or len(set(guess)) != 4:
+            print("Invalid guess. Please enter a 4-digit number with unique digits.")
+            continue
+
+        attempts += 1
+        bulls, cows = get_feedback(secret_number, guess)
+
+        print(f"Your guess: {guess}")
+        print(f"Bulls: {bulls}, Cows: {cows}")
+
+        if bulls == 4:
+            print(f"Congratulations! You guessed the number {secret_number} in {attempts} attempts.")
+            break
+
+if __name__ == "__main__":
+    play_game()
+
 
