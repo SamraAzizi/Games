@@ -1,3 +1,12 @@
+
+# 2048
+# Welcome to 2048! The objective is to reach the 2048 tile by combining tiles with the same number.
+# Use the arrow keys to move the tiles left, right, up, or down.
+# Tiles with the same number will merge when they collide.
+# After each move, a new tile will randomly appear on the grid with a value of either 2 or 4.
+# Keep combining tiles and strategize your moves to reach the 2048 tile and win the game!
+
+
 import tkinter as tk
 import random
 import numpy as np
