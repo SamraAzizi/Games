@@ -1,3 +1,10 @@
+
+# Chess:
+
+# Chess is a two-player strategy game played on an 8x8 grid.
+# Each player starts with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.
+# Players take turns moving their pieces according to specific rules aiming to checkmate the opponent's king.
+
 class ChessGame:
     def __init__(self):
         self.board = self.create_board()

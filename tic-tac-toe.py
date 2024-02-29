@@ -1,3 +1,10 @@
+
+# Tic Tac Toe:
+
+# Players take turns marking spaces on a 3x3 grid with their respective symbols (X or O).
+# The first player to get three of their symbols in a row, column, or diagonal wins.
+# If all spaces are filled without a winner, the game ends in a draw.
+
 def print_board(board):
     for row in board:
         print(" | ".join(row))

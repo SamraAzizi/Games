@@ -1,3 +1,10 @@
+
+# Guess Number:
+
+# The computer selects a random number within a specified range.
+# The player guesses the number.
+# The computer provides hints (higher/lower) until the player guesses the correct number.
+
 import random
 
 def guess_the_number():

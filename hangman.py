@@ -1,3 +1,11 @@
+
+# Hangman:
+
+# A word is chosen and represented by dashes.
+# The player guesses letters one at a time.
+# Correct guesses reveal the letters in the word, while incorrect guesses result in drawing a part of the hangman.
+# The player wins by guessing all the letters in the word before completing the hangman.
+
 import random
 
 def choose_word():

@@ -1,3 +1,12 @@
+
+#Blackjack:
+# Players aim to get cards totaling as close to 21 as possible without going over.
+# Each player is dealt two cards initially.
+# Players can "hit" to receive another card or "stand" to keep their current total.
+# The dealer also plays and must hit until their total is at least 17.
+# The player closest to 21 without going over wins.
+
+
 import random
 
 def create_deck():
