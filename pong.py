@@ -1,3 +1,11 @@
+
+# Pong:
+
+# Pong is a two-dimensional sports game.
+# Two players control paddles vertically on opposite sides of the screen.
+# A ball moves between the paddles, and players aim to hit the ball past their opponent's paddle.
+# The game continues until one player fails to return the ball.
+
 import pygame
 import random
 import sys  # To exit the game when a player wins

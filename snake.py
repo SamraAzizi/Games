@@ -1,3 +1,10 @@
+
+# Snake:
+
+# The player controls a snake that moves around a bordered playing field.
+# The snake grows longer as it eats food.
+# The game ends if the snake runs into itself or the border.
+
 import pygame
 import random
 

@@ -1,3 +1,12 @@
+
+
+# Rock Paper Scissors:
+
+# Players simultaneously choose rock, paper, or scissors.
+# Rock beats scissors, scissors beats paper, and paper beats rock.
+# The winner is determined based on the choices made by both players.
+
+
 import random
 
 def get_user_choice():

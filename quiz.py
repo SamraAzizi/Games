@@ -1,3 +1,10 @@
+
+# Quiz:
+
+# Questions are presented to the player.
+# The player selects answers from multiple choices.
+# The player's score is calculated based on correct answers.
+
 import tkinter as tk
 from tkinter import messagebox
 
