@@ -73,3 +73,15 @@ class Minesweeper:
                 button = self.buttons[i][j]
                 button.grid(row=i, column=j)
 
+def main():
+    rows = 12
+    cols = 12
+    num_mines = 20
+
+    root = tk.Tk()
+    root.title("Minesweeper")
+    game = Minesweeper(root, rows, cols, num_mines)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
