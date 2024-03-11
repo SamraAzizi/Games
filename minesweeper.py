@@ -63,4 +63,8 @@ class Minesweeper:
                             if button.winfo_ismapped():
                                 button.grid_forget()
                                 neighbors.append((i, j))
-            
+            else:
+                button = self.buttons[r][c]
+                button.config(text=str(count), bg='light gray')
+
+    
