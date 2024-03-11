@@ -50,38 +50,3 @@ class Minesweeper:
             for r, c in self.mines:
                 self.buttons[r][c].config(text='*', bg='red')
             return
-
-        neighbors = [(row, col)]
-        while neighbors:
-            r, c = neighbors.pop()
-            count = self.board[r][c]
-            if count == 0:
-                for i in range(r - 1, r + 2):
-                    for j in range(c - 1, c + 2):
-                        if 0 <= i < self.rows and 0 <= j < self.cols:
-                            button = self.buttons[i][j]
-                            if button.winfo_ismapped():
-                                button.grid_forget()
-                                neighbors.append((i, j))
-            else:
-                button = self.buttons[r][c]
-                button.config(text=str(count), bg='light gray')
-
-    def create_widgets(self):
-        for i in range(self.rows):
-            for j in range(self.cols):
-                button = self.buttons[i][j]
-                button.grid(row=i, column=j)
-
-def main():
-    rows = 12
-    cols = 12
-    num_mines = 20
-
-    root = tk.Tk()
-    root.title("Minesweeper")
-    game = Minesweeper(root, rows, cols, num_mines)
-    root.mainloop()
-
-if __name__ == "__main__":
-    main()
