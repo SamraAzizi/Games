@@ -67,4 +67,9 @@ class Minesweeper:
                 button = self.buttons[r][c]
                 button.config(text=str(count), bg='light gray')
 
-    
+    def create_widgets(self):
+        for i in range(self.rows):
+            for j in range(self.cols):
+                button = self.buttons[i][j]
+                button.grid(row=i, column=j)
+
