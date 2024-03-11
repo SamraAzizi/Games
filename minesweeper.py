@@ -51,4 +51,16 @@ class Minesweeper:
                 self.buttons[r][c].config(text='*', bg='red')
             return
 
-       
+        neighbors = [(row, col)]
+        while neighbors:
+            r, c = neighbors.pop()
+            count = self.board[r][c]
+            if count == 0:
+                for i in range(r - 1, r + 2):
+                    for j in range(c - 1, c + 2):
+                        if 0 <= i < self.rows and 0 <= j < self.cols:
+                            button = self.buttons[i][j]
+                            if button.winfo_ismapped():
+                                button.grid_forget()
+                                neighbors.append((i, j))
+            
