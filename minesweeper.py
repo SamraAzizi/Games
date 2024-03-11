@@ -38,3 +38,17 @@ class Minesweeper:
                     if 0 <= i < self.rows and 0 <= j < self.cols:
                         self.board[i][j] += 1
 
+    def click(self, row, col):
+        if self.game_over:
+            return
+
+        button = self.buttons[row][col]
+        button.grid_forget()
+
+        if (row, col) in self.mines:
+            self.game_over = True
+            for r, c in self.mines:
+                self.buttons[r][c].config(text='*', bg='red')
+            return
+
+       
