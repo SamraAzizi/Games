@@ -12,3 +12,9 @@ class MemoryGame:
         self.create_board()
         self.first_click = None
 
+    def initialize_board(self):
+        num_pairs = self.size * self.size // 2
+        pairs = random.sample(self.symbols, num_pairs) * 2
+        random.shuffle(pairs)
+        random.shuffle(pairs)
+        
