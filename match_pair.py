@@ -31,4 +31,6 @@ class MemoryGame:
                 button.grid(row=i, column=j, padx=5, pady=5)
                 self.buttons[i][j] = button
 
-    
+    def reveal(self, row, col):
+        if (row, col) not in self.revealed:
+            
