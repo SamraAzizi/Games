@@ -23,4 +23,12 @@ class MemoryGame:
                 board[i][j] = (pairs.pop(), random.choice(['red', 'green', 'blue', 'yellow', 'orange', 'purple']))
         return board
 
- 
+    def create_board(self):
+        for i in range(self.size):
+            for j in range(self.size):
+                button = tk.Button(self.master, text='', width=4, height=2,
+                                   command=lambda row=i, col=j: self.reveal(row, col))
+                button.grid(row=i, column=j, padx=5, pady=5)
+                self.buttons[i][j] = button
+
+    
