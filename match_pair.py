@@ -18,6 +18,7 @@ class MemoryGame:
         random.shuffle(pairs)
         random.shuffle(pairs)
         board = [[None] * self.size for _ in range(self.size)]
+        
         for i in range(self.size):
             for j in range(self.size):
                 board[i][j] = (pairs.pop(), random.choice(['red', 'green', 'blue', 'yellow', 'orange', 'purple']))
