@@ -33,4 +33,6 @@ class MemoryGame:
 
     def reveal(self, row, col):
         if (row, col) not in self.revealed:
-            
+            symbol, color = self.board[row][col]
+            self.buttons[row][col]['text'] = symbol
+           
