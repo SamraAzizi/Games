@@ -53,4 +53,20 @@ class MemoryGame:
                 tk.messagebox.showinfo("Game Over", "Congratulations! You won!")
         else:
             self.buttons[row1][col1]['text'] = ''
+            self.buttons[row1][col1]['bg'] = 'SystemButtonFace'
+            self.buttons[row2][col2]['text'] = ''
+            self.buttons[row2][col2]['bg'] = 'SystemButtonFace'
+            self.revealed.clear()
+        self.first_click = None
+
+def main():
+    root = tk.Tk()
+    root.title("Memory Game")
+    size = 4  # Change the size of the board as desired
+    game = MemoryGame(root, size=size)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
+
 
