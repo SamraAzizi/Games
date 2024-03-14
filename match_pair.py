@@ -42,4 +42,7 @@ class MemoryGame:
             else:
                 self.master.after(1000, self.check_match)
 
- 
+    def check_match(self):
+        row1, col1 = self.first_click
+        row2, col2 = next(iter(self.revealed - {(row1, col1)}))
+        if self.board[row1][col1][0] == self.board[row2][col2][0]:
