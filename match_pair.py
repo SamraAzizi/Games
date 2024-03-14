@@ -46,3 +46,8 @@ class MemoryGame:
         row1, col1 = self.first_click
         row2, col2 = next(iter(self.revealed - {(row1, col1)}))
         if self.board[row1][col1][0] == self.board[row2][col2][0]:
+            self.buttons[row1][col1]['state'] = 'disabled'
+            self.buttons[row2][col2]['state'] = 'disabled'
+            self.revealed.clear()
+            if all(all(cell['state'] == 'disabled' for cell in row) for row in self.buttons):
+                tk.messagebox.showinfo("Game Over", "Congratulations! You won!")
