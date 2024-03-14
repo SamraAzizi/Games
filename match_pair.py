@@ -51,3 +51,6 @@ class MemoryGame:
             self.revealed.clear()
             if all(all(cell['state'] == 'disabled' for cell in row) for row in self.buttons):
                 tk.messagebox.showinfo("Game Over", "Congratulations! You won!")
+        else:
+            self.buttons[row1][col1]['text'] = ''
+
