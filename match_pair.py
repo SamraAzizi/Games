@@ -35,4 +35,11 @@ class MemoryGame:
         if (row, col) not in self.revealed:
             symbol, color = self.board[row][col]
             self.buttons[row][col]['text'] = symbol
-           
+            self.buttons[row][col]['bg'] = color
+            self.revealed.add((row, col))
+            if self.first_click is None:
+                self.first_click = (row, col)
+            else:
+                self.master.after(1000, self.check_match)
+
+ 
