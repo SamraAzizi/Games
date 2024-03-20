@@ -15,3 +15,7 @@ This Python script implements a basic version of the classic board game Chess. C
 3. **Turn Progression**: The game alternates between white and black players, allowing each to make their moves in turn.
 4. **Checkmate**: The game continues until one player achieves checkmate, where the opponent's king is threatened and cannot escape capture, or until the players agree to a draw.
 
+## Execution
+To play the game, run the script in your Python environment with the command:
+```bash
+python chess.py
