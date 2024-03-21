@@ -28,26 +28,35 @@ This is a simple Python implementation of the classic "Cows and Bulls" game. In 
 ## Example
 
 Welcome to the Cows and Bulls Game!
+
 Try to guess the 4-digit number with no repeating digits.
+
 Enter your guess: 1234
 Your guess: 1234
 Bulls: 0, Cows: 2
+
 Enter your guess: 5678
 Your guess: 5678
 Bulls: 0, Cows: 0
+
 Enter your guess: 1534
 Your guess: 1534
 Bulls: 1, Cows: 2
+
 Enter your guess: 1432
 Your guess: 1432
 Bulls: 2, Cows: 1
+
 Enter your guess: 1423
 Your guess: 1423
 Bulls: 3, Cows: 1
+
 Enter your guess: 1425
 Your guess: 1425
 Bulls: 3, Cows: 0
+
 Enter your guess: 1426
 Your guess: 1426
 Bulls: 4, Cows: 0
+
 Congratulations! You guessed the number 1426 in 7 attempts.
