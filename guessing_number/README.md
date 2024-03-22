@@ -18,7 +18,7 @@ The "Guess Number" game is a simple Python program where the computer selects a 
 
 The game is implemented in Python and utilizes the `random` module to generate a random number within the specified range. It consists of a single function `guess_the_number()` that contains the game logic.
 
-## Running the Game
-
-To play the game, simply run the `guess_the_number()` function within the Python environment.
-
+##Notes
+Make sure you have Python installed on your system to run the game.
+This game is suitable for beginners learning Python or programming concepts like loops, conditionals, and functions.
+Have fun playing "Guess Number"!
