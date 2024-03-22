@@ -22,10 +22,3 @@ The game is implemented in Python and utilizes the `random` module to generate a
 
 To play the game, simply run the `guess_the_number()` function within the Python environment.
 
-```python
-import random
-
-def guess_the_number():
-    # Game logic goes here
-
-guess_the_number()
