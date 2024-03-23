@@ -22,12 +22,3 @@ Hangman is a classic word guessing game where players try to guess a word by sug
 
 - Python 3.x
 
-## Usage
-
-1. Clone this repository or download the `hangman.py` file.
-
-2. Open a terminal or command prompt.
-
-3. Navigate to the directory containing `hangman.py`.
-
-4. Run the game by executing the command:
