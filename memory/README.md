@@ -4,7 +4,7 @@ Memory Game is a classic concentration game where players try to match pairs of 
 
 ## How to Play
 
-1. **Getting Started**: Run the provided Python script (`memory_game.py`) to start the game.
+1. **Getting Started**: Run the provided Python script (`memory.py`) to start the game.
 
 2. **Game Objective**: The objective of the game is to match all pairs of symbols hidden behind the tiles.
 
