@@ -16,7 +16,7 @@ Memory Game is a classic concentration game where players try to match pairs of 
 
 4. **Winning the Game**: The game ends when all pairs of symbols are matched. A message will appear indicating that you've won the game.
 
-5. **Customization**: You can customize the size of the game board by changing the `size` parameter in the `main()` function within the `memory_game.py` file.
+5. **Customization**: You can customize the size of the game board by changing the `size` parameter in the `main()` function within the `memory.py` file.
 
 ## Requirements
 
@@ -25,11 +25,11 @@ Memory Game is a classic concentration game where players try to match pairs of 
 
 ## Usage
 
-1. Clone this repository or download the `memory_game.py` file.
+1. Clone this repository or download the `memory.py` file.
 
 2. Open a terminal or command prompt.
 
-3. Navigate to the directory containing `memory_game.py`.
+3. Navigate to the directory containing `memory.py`.
 
 4. Run the game by executing the command:
 python memory.py
