@@ -32,4 +32,4 @@ Memory Game is a classic concentration game where players try to match pairs of 
 3. Navigate to the directory containing `memory_game.py`.
 
 4. Run the game by executing the command:
-python match_pair.py
+python memory.py
