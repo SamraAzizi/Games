@@ -26,4 +26,9 @@ To run the Minesweeper game, follow these steps:
 - Right-click: Flag a cell as a potential mine
 
 
+## Dependencies
+
+- Python 3.x
+- Tkinter (usually comes pre-installed with Python)
+
 
