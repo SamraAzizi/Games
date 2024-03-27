@@ -24,4 +24,8 @@ Pong is a two-dimensional sports game where two players control paddles vertical
 - Simple controls.
 - Score tracking.
 - Winning condition.
+- 
+## Development Environment:
+- Visual Studio Code
+- Python 3.x
 
