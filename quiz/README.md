@@ -10,7 +10,7 @@ To run the quiz game, make sure you have Python installed on your system. Then, 
 3. Navigate to the directory where the code is located.
 4. Run the following command:
     ```
-    python quiz_game.py
+    python quiz.py
     ```
 5. The quiz game window will open, and you can start playing.
 
@@ -31,6 +31,5 @@ You can customize the quiz by modifying the `questions` list in the code. Each q
 ## Dependencies
 This project requires Python 3.x and the Tkinter library, which is included in standard Python installations.
 
-## Credits
-This quiz game was created by [Your Name].
+
 
