@@ -22,14 +22,6 @@ To run the quiz game, make sure you have Python installed on your system. Then, 
 - Your score will be displayed on the window.
 - After answering all the questions, a final message will display your score.
 
-## Customization
-You can customize the quiz by modifying the `questions` list in the code. Each question is represented as a dictionary with the following keys:
-- `"question"`: The text of the question.
-- `"options"`: A list of options for the player to choose from.
-- `"answer"`: The correct answer to the question.
-
-## Dependencies
-This project requires Python 3.x and the Tkinter library, which is included in standard Python installations.
 
 
 
