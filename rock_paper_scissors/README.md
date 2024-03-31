@@ -19,9 +19,4 @@ This is a simple Python implementation of the classic game "Rock, Paper, Scissor
 4. You will be informed whether you win, lose, or if it's a tie.
 5. You can choose to play again or exit the game.
 
-## Files
-- **rock_paper_scissors.py:** Contains the Python code for the game.
-
-## Technologies Used
-- Python 3
 
