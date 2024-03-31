@@ -25,7 +25,3 @@ This is a simple Python implementation of the classic game "Rock, Paper, Scissor
 ## Technologies Used
 - Python 3
 
-## Author
-[Your Name/Username]
-
-Feel free to modify the code and customize the game as you like! Enjoy playing!
