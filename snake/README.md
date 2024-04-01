@@ -21,12 +21,4 @@ This is a simple implementation of the classic Snake game using Pygame.
     python snake.py
     ```
 
-## Customization
 
-- You can modify the constants at the beginning of the `snake.py` file to adjust the game's settings, such as screen size, grid size, and frame rate.
-- Feel free to tweak the colors and fonts used in the game to suit your preferences.
-
-## Credits
-
-- This game was created by [Your Name].
-- It is based on the Pygame library, which is developed by a community of contributors.
