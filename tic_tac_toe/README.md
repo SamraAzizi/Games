@@ -21,3 +21,9 @@ This is a simple implementation of the classic Tic Tac Toe game in Python.
 1. **Instructions:** Follow the on-screen prompts to enter the row and column where you want to place your symbol.
 2. **Input Format:** Enter the row and column numbers separated by a space (e.g., `1 2` for row 1, column 2).
 3. **Validation:** The game will prevent players from placing their symbols in already occupied spaces.
+## Customization
+
+- You can modify the symbols used for the players by changing the `"X"` and `"O"` strings in the `players` list.
+- Feel free to adjust the board size by modifying the dimensions of the `board` list.
+
+
