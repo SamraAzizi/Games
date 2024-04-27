@@ -24,7 +24,7 @@ This is a simple implementation of the classic Tic Tac Toe game in Python.
 ## Customization
 
 - You can modify the symbols used for the players by changing the `"X"` and `"O"` strings in the `players` list.
-- have fun playing this game
+
 
 
 
