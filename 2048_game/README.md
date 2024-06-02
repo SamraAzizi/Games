@@ -18,6 +18,3 @@ Welcome to 2048! This is a Python implementation of the classic 2048 game, where
 - Use the arrow keys (Left, Right, Up, Down) to move the tiles on the grid.
 
 
-## Customization
-- You can customize the appearance of the game by modifying the `COLORS` dictionary in the Python script.
-- Additionally, you can adjust the game size by changing the `game_size` variable in the `Game` class constructor.
