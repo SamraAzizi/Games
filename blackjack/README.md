@@ -17,7 +17,3 @@ This Python script simulates a simple game of Blackjack, a classic card game whe
 4. **Outcome Determination**: The game compares the totals of the player's and dealer's hands to determine the winner or declare a tie.
 
 
-## Execution
-To play the game, run the script in your Python environment with the command:
-```bash
-python blackjack.py
