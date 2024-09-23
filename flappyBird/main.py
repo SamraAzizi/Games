@@ -23,12 +23,15 @@ if __name__ == "__main__":
     pygame.display,set_caption('Flappy Bird')
     GAME_SPRITES['numbers'] = (
         pygame.image.load('gallery/0.png').convert_alpha(),
-        pygame.image.load('gallery/0.png').convert_alpha(),
-        pygame.image.load('gallery/0.png').convert_alpha(),
-        pygame.image.load('gallery/0.png').convert_alpha(),
-        pygame.image.load('gallery/0.png').convert_alpha(),
-        pygame.image.load('gallery/0.png').convert_alpha(),
-        pygame.image.load('gallery/0.png').convert_alpha(),
+        pygame.image.load('gallery/1.png').convert_alpha(),
+        pygame.image.load('gallery/2.png').convert_alpha(),
+        pygame.image.load('gallery/3.png').convert_alpha(),
+        pygame.image.load('gallery/4.png').convert_alpha(),
+        pygame.image.load('gallery/5.png').convert_alpha(),
+        pygame.image.load('gallery/6.png').convert_alpha(),
+        pygame.image.load('gallery/7.png').convert_alpha(),
+        pygame.image.load('gallery/8.png').convert_alpha(),
+        pygame.image.load('gallery/9.png').convert_alpha(),
 
     )
 
