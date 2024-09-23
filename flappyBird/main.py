@@ -14,3 +14,9 @@ PLAYER = 'gallery/bird.png'
 BACKGROUND = 'gallery/background.png'
 PIPE = 'gallery/pipe.png'
 
+
+
+if __name__ == "__main__":
+    #this will be the main point from  where our game will start 
+    pygame.init()
+    
