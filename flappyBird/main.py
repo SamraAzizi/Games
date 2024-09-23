@@ -19,4 +19,9 @@ PIPE = 'gallery/pipe.png'
 if __name__ == "__main__":
     #this will be the main point from  where our game will start 
     pygame.init()
-    
+    FPSCLOCK = pygame.time.Clock()
+    pygame.display,set_caption('Flappy Bird')
+    GAME_SPRITES['numbers'] = (
+        pygame.image.load('gallery/0.png')
+    )
+
