@@ -46,5 +46,8 @@ if __name__ == "__main__":
     GAME_SOUNDS['point'] = pygame.mixer.Sound('gallery/audio/point.wav')
     GAME_SOUNDS['swoosh'] = pygame.mixer.Sound('gallery/audio/swoosh.wav')
     GAME_SOUNDS['wing'] = pygame.mixer.Sound('gallery/audio/wing.wav')
+
+    GAME_SPRITES['background'] = pyagem.image.load(BACKGROUND).convert()
+    GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert()
                             
 
