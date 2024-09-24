@@ -37,5 +37,10 @@ if __name__ == "__main__":
 
     GAME_SPRITES['message'] = pygame.image.load('gallery/message.png').convert_alpha()
     GAME_SPRITES['base'] = pygame.image.load('gallery/message.png').convert_alpha()
-    GAME_SPRITES['pipe'] = pygame.image.load('gallery/message.png').convert_alpha()
+    GAME_SPRITES['pipe'] = (pygame.transform.rotate(pygame.image.load(PIPE).convert_alpha(), 180),
+                            pygame.image,load(PIPE).convert_alpha())
+    
+    #game sounds
+    GAME_SOUNDS['die'] = pygame.mixer.Sound()
+                            
 
