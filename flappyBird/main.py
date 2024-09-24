@@ -1,7 +1,7 @@
 import random
 import sys
 import pygame
-import pygame.locals import *
+from pygame.locals import *
 
 FPS = 32
 SCREENWIDTH = 289
@@ -52,6 +52,8 @@ if __name__ == "__main__":
 
 
     while True:
-        welcomeScreen()
+        welcomeScreen() # shows a welcome scrren to the users until he presses a button
+
         mainGame()
+
 
