@@ -41,6 +41,10 @@ if __name__ == "__main__":
                             pygame.image,load(PIPE).convert_alpha())
     
     #game sounds
-    GAME_SOUNDS['die'] = pygame.mixer.Sound()
+    GAME_SOUNDS['die'] = pygame.mixer.Sound('gallery/audio/die.wav')
+    GAME_SOUNDS['die'] = pygame.mixer.Sound('gallery/audio/die.wav')
+    GAME_SOUNDS['die'] = pygame.mixer.Sound('gallery/audio/die.wav')
+    GAME_SOUNDS['die'] = pygame.mixer.Sound('gallery/audio/die.wav')
+    GAME_SOUNDS['die'] = pygame.mixer.Sound('gallery/audio/die.wav')
                             
 
