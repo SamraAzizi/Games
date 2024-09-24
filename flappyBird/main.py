@@ -48,6 +48,10 @@ if __name__ == "__main__":
     GAME_SOUNDS['wing'] = pygame.mixer.Sound('gallery/audio/wing.wav')
 
     GAME_SPRITES['background'] = pyagem.image.load(BACKGROUND).convert()
-    GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert()
-                            
+    GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
+
+
+    while True:
+        welcomeScreen()
+        mainGame()
 
