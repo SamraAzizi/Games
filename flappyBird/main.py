@@ -14,6 +14,14 @@ PLAYER = 'gallery/bird.png'
 BACKGROUND = 'gallery/background.png'
 PIPE = 'gallery/pipe.png'
 
+def welcomeScreen():
+    
+
+    playerX = int(SCREENWIDTH/5)
+    pass
+
+
+
 
 
 if __name__ == "__main__":
