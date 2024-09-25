@@ -18,6 +18,9 @@ def welcomeScreen():
     
 
     playerX = int(SCREENWIDTH/5)
+    playerY = int(SCREENHEIGHT - GAME_SPRITES['player'].get_height())/2
+    messageX = int(SCREENHEIGHT - GAME_SPRITES['player'].get_height())/2
+    messageY = int(SCREENHEIGHT - GAME_SPRITES['player'].get_height())/2
     pass
 
 
