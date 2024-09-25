@@ -27,7 +27,13 @@ def welcomeScreen():
         for event in pygame.event.get():
             # if users clicks on cross button close the game
 
-            if event 
+            if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
+                pygame.quit()
+                sys.exit()
+
+                # if the user presses space or up key , start the game for them 
+
+
 
 
 
