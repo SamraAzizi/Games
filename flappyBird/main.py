@@ -33,6 +33,21 @@ def welcomeScreen():
 
                 # if the user presses space or up key , start the game for them 
 
+            elif event.type == KEYDOWN and (event.key=K_SPACE or event.key == K_UP):
+                return 
+            else:
+                screen.blit(GAME_SPRITES[''],())
+                screen.blit(GAME_SPRITES[''],())
+                screen.blit(GAME_SPRITES[''],())
+                screen.blit(GAME_SPRITES[''],())
+                screen.blit(GAME_SPRITES[''],())
+                screen.blit(GAME_SPRITES[''],())
+                screen.blit(GAME_SPRITES[''],())
+
+                screen.blit(GAME_SPRITES[''],())
+
+            
+
 
 
 
