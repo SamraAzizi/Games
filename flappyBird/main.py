@@ -19,9 +19,15 @@ def welcomeScreen():
 
     playerX = int(SCREENWIDTH/5)
     playerY = int(SCREENHEIGHT - GAME_SPRITES['player'].get_height())/2
-    messageX = int(SCREENHEIGHT - GAME_SPRITES['player'].get_height())/2
-    messageY = int(SCREENHEIGHT - GAME_SPRITES['player'].get_height())/2
-    pass
+    messageX = int(SCREENWIDTH - GAME_SPRITES['message'].get_width())/2
+    messageY = int(SCREENHEIGHT * 0.13)
+    baseX = 0
+
+    while True:
+        for event in pygame.event.get():
+            # if users clicks on cross button close the game
+
+            if event 
 
 
 
