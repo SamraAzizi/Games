@@ -36,10 +36,10 @@ def welcomeScreen():
             elif event.type == KEYDOWN and (event.key=K_SPACE or event.key == K_UP):
                 return 
             else:
-                screen.blit(GAME_SPRITES[''],())
-                screen.blit(GAME_SPRITES[''],())
-                screen.blit(GAME_SPRITES[''],())
-                screen.blit(GAME_SPRITES[''],())
+                screen.blit(GAME_SPRITES['background'],(0,0))
+                screen.blit(GAME_SPRITES['player'],(playerX, playerY))
+                screen.blit(GAME_SPRITES['message'],(messageX, messageY))
+                screen.blit(GAME_SPRITES['base'],(baseX, GROUNDY))
                 screen.blit(GAME_SPRITES[''],())
                 screen.blit(GAME_SPRITES[''],())
                 screen.blit(GAME_SPRITES[''],())
