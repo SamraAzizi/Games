@@ -40,11 +40,11 @@ def welcomeScreen():
                 screen.blit(GAME_SPRITES['player'],(playerX, playerY))
                 screen.blit(GAME_SPRITES['message'],(messageX, messageY))
                 screen.blit(GAME_SPRITES['base'],(baseX, GROUNDY))
-                screen.blit(GAME_SPRITES[''],())
-                screen.blit(GAME_SPRITES[''],())
-                screen.blit(GAME_SPRITES[''],())
+                
 
-                screen.blit(GAME_SPRITES[''],())
+                pygame.display.update()
+
+                FPSCLOCK.tick(FPS)
 
             
 
