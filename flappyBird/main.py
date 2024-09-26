@@ -46,6 +46,14 @@ def welcomeScreen():
 
                 FPSCLOCK.tick(FPS)
 
+
+
+def mainGame():
+    score = 0
+    playerX = int(SCREENWIDTH/5)
+    playerY = int(SCREENWIDTH/2)
+
+
             
 
 
