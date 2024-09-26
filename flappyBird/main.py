@@ -52,11 +52,17 @@ def mainGame():
     score = 0
     playerX = int(SCREENWIDTH/5)
     playerY = int(SCREENWIDTH/2)
+    baseX = 0
+    #create two pipes for blitting on the xcreen
+
+    newPipe1 = getRandomePipe()
+    newPipe2 = getRandomPipe()
 
 
             
 
 
+def getRandomPipe():
 
 
 
