@@ -66,7 +66,14 @@ def getRandomPipe():
 
     pipeHeight = GAME_SPRITES['pipe'][0].get_height()
     offset = SCREENHEIGHT/3
-    y2 = offset + random.randrange(0,int(SCREENHEIGHT - GAME_SPRITES['base'].get_height()))
+    y2 = offset + random.randrange(0,int(SCREENHEIGHT - GAME_SPRITES['base'].get_height() - 1.2 * offset))
+    pipeX = SCREENWIDTH + 10
+
+    y1 = pipeHeight - y2 + offset
+
+    pipe = [
+        {}
+    ]
 
 
 
