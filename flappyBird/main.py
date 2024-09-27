@@ -74,9 +74,17 @@ def mainGame():
             
     pipeV = -4
     playerV = -9
-    playerMaxzY = -9
-    playerMinYY = -9
-    playerAccY = -9
+    playerMaxzY = -10
+    playerMinYY = -8
+    playerAccY = -1
+
+    playerFlapAcc = -8 #velocity while flapping
+    playerFlapped = False  # it is true only when the bird is flying
+
+    
+    while True:
+        for event in pygame.event.get():
+            
     
 
 
