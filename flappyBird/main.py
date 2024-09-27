@@ -72,7 +72,13 @@ def mainGame():
         ]
 
             
-        pipeV = -4
+    pipeV = -4
+    playerV = -9
+    playerMaxzY = -9
+    playerMinYY = -9
+    playerAccY = -9
+    
+
 
 
 def getRandomPipe():
