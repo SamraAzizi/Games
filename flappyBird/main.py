@@ -58,6 +58,13 @@ def mainGame():
     newPipe1 = getRandomePipe()
     newPipe2 = getRandomPipe()
 
+    # my lists of upper pipes
+
+    upperPipes = [
+        {'x' : SCREENWIDTH + 200, 'y' : newPipe1[0]['y']},
+        {'x' : SCREENWIDTH + 200 + (SCREENWIDTH/2), 'y' : newPipe1[1]['y']}
+    ]
+
 
             
 
@@ -72,7 +79,7 @@ def getRandomPipe():
     y1 = pipeHeight - y2 + offset
 
     pipe = [
-        {'x' : pipeX, 'y' : -y1} #upper pipe
+        {'x' : pipeX, 'y' : -y1}, #upper pipe
         {'x' : pipeX ,'y' : y2 } # slower pipe
 
     ]
