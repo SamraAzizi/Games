@@ -72,8 +72,12 @@ def getRandomPipe():
     y1 = pipeHeight - y2 + offset
 
     pipe = [
-        {}
+        {'x' : pipeX, 'y' : -y1} #upper pipe
+        {'x' : pipeX ,'y' : y2 } # slower pipe
+
     ]
+
+    return pipe
 
 
 
