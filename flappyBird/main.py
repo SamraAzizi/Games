@@ -201,6 +201,18 @@ if __name__ == "__main__":
         pygame.image.load('assets/sprites/9.png').convert_alpha(),
     )
 
+    GAME_SPRITES['message'] =pygame.image.load('assets/sprites/message.png').convert_alpha()
+    GAME_SPRITES['base'] =pygame.image.load('assets/sprites/base.png').convert_alpha()
+    GAME_SPRITES['pipe'] =(pygame.transform.rotate(pygame.image.load( PIPE).convert_alpha(), 180), 
+    pygame.image.load(PIPE).convert_alpha()
+    )
+
+    # Game sounds
+    GAME_SOUNDS['die'] = pygame.mixer.Sound('assets/audio/die.wav')
+    GAME_SOUNDS['hit'] = pygame.mixer.Sound('assets/audio/hit.wav')
+    GAME_SOUNDS['point'] = pygame.mixer.Sound('assets/audio/point.wav')
+    GAME_SOUNDS['swoosh'] = pygame.mixer.Sound('assets/audio/swoosh.wav')
+    GAME_SOUNDS['wing'] = pygame.mixer.Sound('assets/audio/wing.wav')
 
     GAME_SPRITES['background'] = pygame.image.load(BACKGROUND).convert()
     GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
