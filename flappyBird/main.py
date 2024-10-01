@@ -197,7 +197,13 @@ if __name__ == "__main__":
         pygame.image.load('assets/sprites/5.png').convert_alpha(),
         pygame.image.load('assets/sprites/6.png').convert_alpha(),
         pygame.image.load('assets/sprites/7.png').convert_alpha(),
-        pygame.image.load('assets/sprimage.load( PIPE).convert_alpha(), 180), 
+        pygame.image.load('assets/sprites/8.png').convert_alpha(),
+        pygame.image.load('assets/sprites/9.png').convert_alpha(),
+    )
+
+    GAME_SPRITES['message'] =pygame.image.load('assets/sprites/message.png').convert_alpha()
+    GAME_SPRITES['base'] =pygame.image.load('assets/sprites/base.png').convert_alpha()
+    GAME_SPRITES['pipe'] =(pygame.transform.rotate(pygame.image.load( PIPE).convert_alpha(), 180), 
     pygame.image.load(PIPE).convert_alpha()
     )
 
