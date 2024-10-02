@@ -30,15 +30,4 @@ The game is simple: control a bird that must navigate through a series of pipes 
 	+ `assets/sprites/pipe.png` (pipe sprite)
 	+ `assets/sprites/message.png` (message sprite)
 	+ `assets/sprites/base.png` (base sprite)
-	+ `assets/audio/die.wav` (die sound effect)
-	+ `assets/audio/hit.wav` (hit sound effect)
-	+ `assets/audio/point.wav` (point sound effect)
-	+ `assets/audio/swoosh.wav` (swoosh sound effect)
-	+ `assets/audio/wing.wav` (wing sound effect)
 
-**How to Run**
--------------
-
-1. Save this code in a file named `flappy_bird.py`.
-2. Create an `assets` folder with the required files.
-3. Run the game by executing `python flappy_bird.py` in your terminal or command prompt.
