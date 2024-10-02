@@ -38,5 +38,8 @@ The game is simple: control a bird that must navigate through a series of pipes 
 
 **How to Run**
 -------------
+1. Save this code in a file named `flappy_bird.py`.
+2. Create an `assets` folder with the required files.
+3. Run the game by executing `python flappy_bird.py` in your terminal or command prompt.
 
 
