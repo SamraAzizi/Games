@@ -8,6 +8,8 @@ letters_to_numbers = {'a' :0, 'b' : 1, 'c' : 2, 'd' :3, 'e' : 4, 'f':5, 'g' : 6,
 def board():
     pass
 
+def create_ships():
+    pass
 
 def get_ship_location():
     pass
