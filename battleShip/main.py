@@ -20,7 +20,10 @@ def print_board(board):
     
 
 def create_ships():
-    pass
+    for ship in range(5):
+        ship_row, ship_colunm = randint(0,7), randint(0,7)
+        while board[ship_row][ship_colunm] == 'X':
+            ship_row, ship_colunm = randint(0,7), randint(0,7)
 
 def get_ship_location():
     pass
