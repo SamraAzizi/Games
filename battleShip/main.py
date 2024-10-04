@@ -1,4 +1,7 @@
 
+from random import randint
+
+
 
 hiden_board = [[' '] * 8 for x in range[8]]
 guess_board = [[' '] * 8 for x in range[8]]
@@ -12,7 +15,8 @@ def print_board(board):
 
     row_num = 1
     for row in board:
-        print("%d|%s|" %(row_num))
+        print("%d|%s|" %(row_num,"|".join(row)))
+        row_num += 1
     
 
 def create_ships():
