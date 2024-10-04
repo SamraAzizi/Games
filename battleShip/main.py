@@ -13,3 +13,7 @@ def create_ships():
 
 def get_ship_location():
     pass
+
+
+def count_hit_ships():
+    pass
