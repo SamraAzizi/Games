@@ -24,14 +24,16 @@ def print_board(board):
         row_num += 1
     
 
-def create_ships():
+def create_ships(board):
     for ship in range(5):
         ship_row, ship_colunm = randint(0,7), randint(0,7)
         while board[ship_row][ship_colunm] == 'X':
             ship_row, ship_colunm = randint(0,7), randint(0,7)
+        board[ship_row][ship_colunm] = 'X'
 
 def get_ship_location():
-    pass
+    row = input('Please enter a ship row 1-8').upper()
+    
 
 
 def count_hit_ships():
