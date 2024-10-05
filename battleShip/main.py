@@ -1,4 +1,9 @@
 
+#legends
+# x for placing ship and hit battleship
+# ' ' for available space
+#'_' for missed shot
+
 from random import randint
 
 
