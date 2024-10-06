@@ -49,7 +49,9 @@ def get_ship_location():
 def count_hit_ships(board):
     count = 0
     for row in board:
-        for co
+        for column in row:
+            if column == 'X':
+                count += 1
 
 create_ships()
 turns = 10
