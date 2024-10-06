@@ -46,8 +46,10 @@ def get_ship_location():
 
 
 
-def count_hit_ships():
-    pass
+def count_hit_ships(board):
+    count = 0
+    for row in board:
+        for co
 
 create_ships()
 turns = 10
