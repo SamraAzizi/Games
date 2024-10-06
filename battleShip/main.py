@@ -51,8 +51,11 @@ def count_hit_ships(board):
     for row in board:
         for column in row:
             if column == 'X':
+
                 count += 1
 
-create_ships()
+    return count
+
+create_ships(hiden_board)
 turns = 10
 ##while turns > 0 
