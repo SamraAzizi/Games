@@ -62,3 +62,8 @@ turns = 10
 #print_board(guess_board)
 while turns > 0:
     print('Welcome to BattleShip')
+    print_board(guess_board)
+    row, column = get_ship_location()
+    if guess_board[row][column] == '-':
+        print('you have already guessed that')
+
