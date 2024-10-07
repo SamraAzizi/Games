@@ -67,7 +67,7 @@ while turns > 0:
     print_board(guess_board)
     turns -= 1
     
-    if count_hit_ships(guess_board) == 5:
+if count_hit_ships(guess_board) == 5:
         print('Congratulations! You have sunk all the battleships!')
         break
     
