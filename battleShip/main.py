@@ -66,4 +66,6 @@ while turns > 0:
     row, column = get_ship_location()
     if guess_board[row][column] == '-':
         print('you have already guessed that')
+    elif hiden_board[row][column] == 'X':
+        print(' congratulation , you have hit the battleship')
 
