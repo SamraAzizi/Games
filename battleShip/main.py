@@ -68,4 +68,8 @@ while turns > 0:
         print('you have already guessed that')
     elif hiden_board[row][column] == 'X':
         print(' congratulation , you have hit the battleship')
+        guess_board[row][column] = 'X'
+        turns -= 1
+    else:
+        print('sorry you missed')
 
