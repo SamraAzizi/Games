@@ -24,3 +24,6 @@ This is a simple implementation of the classic Battleship game in Python. The ga
 * `guess_board`: a 2D list representing the player's guess board.
 * `letters_to_numbers`: a dictionary mapping column letters (A-H) to numbers (0-7).
 * `turns`: the number of turns remaining for the player.
+
+## Running the Game
+To play the game, simply run the Python script. The game will start automatically, and you can follow the prompts to play.
