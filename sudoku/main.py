@@ -6,3 +6,5 @@ def solve_sudoku(puzzle):
     # in our sudoku puzzle
     #return whether a solution exits
     # mutates puzzle to be the solution
+
+    #1 choose somewhere on the puzzle to make a guess
