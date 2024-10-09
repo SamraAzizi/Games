@@ -2,7 +2,10 @@
 def fint_next_empty(puzzle):
     for r in range(9):
         for c in range(9):
-            if puzzle()
+            if puzzle[r][c] == -1:
+                return r, c
+            
+    return None, None
 def solve_sudoku(puzzle):
     #solve sudoku using backtracking!
     # our puzzle is a list of lists where each inner list is a row
