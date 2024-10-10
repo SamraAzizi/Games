@@ -6,6 +6,11 @@ def fint_next_empty(puzzle):
                 return r, c
             
     return None, None
+
+    col_vals  = []
+    for i in range(9):
+        col_vals.append(puzzle[i][col])
+    col_vals = [puzzle[i][col] for i in range(9)]
 def solve_sudoku(puzzle):
     
     #1 choose somewhere on the puzzle to make a guess
@@ -16,6 +21,7 @@ def solve_sudoku(puzzle):
     
     for guess in range(1,10):
         if is_valid(puzzle, guess, row, col):
+
             row_vals = puzzle[row]
             if guess in row_vals:
                 return False
