@@ -16,7 +16,13 @@ def fint_next_empty(puzzle):
     
     row_start = (row // 3) * 3
     col_start - (col // 3) * 3
-    
+
+    for i in range(row_start, row_start + 3):
+        for c in range(col_start, col_start + 3):
+            if puzzle[r][c] == guess:
+                return False
+
+
 
 def solve_sudoku(puzzle):
     
