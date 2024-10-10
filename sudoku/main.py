@@ -16,6 +16,9 @@ def solve_sudoku(puzzle):
     
     for guess in range(1,10):
         if is_valid(puzzle, guess, row, col):
+            row_vals = puzzle[row]
+            if guess in row_vals:
+                return False
             
 
 
