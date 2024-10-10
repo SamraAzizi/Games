@@ -11,6 +11,13 @@ def fint_next_empty(puzzle):
     for i in range(9):
         col_vals.append(puzzle[i][col])
     col_vals = [puzzle[i][col] for i in range(9)]
+    if guess in col_vals:
+        return False
+    
+    row_start = (row // 3) * 3
+    col_start - (col // 3) * 3
+    
+
 def solve_sudoku(puzzle):
     
     #1 choose somewhere on the puzzle to make a guess
