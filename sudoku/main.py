@@ -1,73 +1,101 @@
-def find_next_empty(puzzle):
-    # Finds the next empty spot in the puzzle (denoted by -1)
-    for r in range(9):
-        for c in range(9):
-            if puzzle[r][c] == -1:
-                return r, c  # row, col
-    return None, None  # if no empty spaces left
+import random
 
-def is_valid(puzzle, guess, row, col):
-    # Check if the guess is valid in the row
-    row_vals = puzzle[row]
-    if guess in row_vals:
-        return False
+# Function to print the Sudoku board
+def print_board(board):
+    for row in range(len(board)):
+        if row % 3 == 0 and row != 0:
+            print("- - - - - - - - - - - -")
+        for col in range(len(board[0])):
+            if col % 3 == 0 and col != 0:
+                print("| ", end="")
+            if col == 8:
+                print(board[row][col])
+            else:
+                print(str(board[row][col]) + " ", end="")
 
-    # Check if the guess is valid in the column
-    col_vals = [puzzle[i][col] for i in range(9)]
-    if guess in col_vals:
-        return False
+# Function to find an empty spot on the board
+def find_empty(board):
+    for i in range(len(board)):
+        for j in range(len(board[0])):
+            if board[i][j] == 0:
+                return (i, j)  # row, col
+    return None
 
-    # Check if the guess is valid in the 3x3 square
-    row_start = (row // 3) * 3
-    col_start = (col // 3) * 3
+# Function to check if the move is valid
+def valid(board, num, pos):
+    # Check row
+    for i in range(len(board[0])):
+        if board[pos[0]][i] == num and pos[1] != i:
+            return False
 
-    for r in range(row_start, row_start + 3):
-        for c in range(col_start, col_start + 3):
-            if puzzle[r][c] == guess:
+    # Check column
+    for i in range(len(board)):
+        if board[i][pos[1]] == num and pos[0] != i:
+            return False
+
+    # Check 3x3 box
+    box_x = pos[1] // 3
+    box_y = pos[0] // 3
+
+    for i in range(box_y * 3, box_y * 3 + 3):
+        for j in range(box_x * 3, box_x * 3 + 3):
+            if board[i][j] == num and (i, j) != pos:
                 return False
 
-    # If it passes all checks, it's a valid guess
     return True
 
-def solve_sudoku(puzzle):
-    # Find the next empty spot in the puzzle
-    row, col = find_next_empty(puzzle)
+# Function to solve the Sudoku board using backtracking
+def solve(board):
+    find = find_empty(board)
+    if not find:
+        return True
+    else:
+        row, col = find
 
-    if row is None:
-        return True  # puzzle is solved
+    for i in range(1, 10):
+        if valid(board, i, (row, col)):
+            board[row][col] = i
 
-    # If there is an empty spot, we try guesses from 1 to 9
-    for guess in range(1, 10):
-        # Check if it's a valid guess
-        if is_valid(puzzle, guess, row, col):
-            # Place the guess on the puzzle
-            puzzle[row][col] = guess
-
-            # Recursively call the solver
-            if solve_sudoku(puzzle):
+            if solve(board):
                 return True
 
-        # If the guess doesn't lead to a solution, reset the guess
-        puzzle[row][col] = -1
+            board[row][col] = 0
 
-    return False  # If no valid guesses work, backtrack
+    return False
 
-# Example usage
-if __name__ == "__main__":
-    sudoku_puzzle = [
-        [5, 3, -1, -1, 7, -1, -1, -1, -1],
-        [6, -1, -1, 1, 9, 5, -1, -1, -1],
-        [-1, 9, 8, -1, -1, -1, -1, 6, -1],
-        [8, -1, -1, -1, 6, -1, -1, -1, 3],
-        [4, -1, -1, 8, -1, 3, -1, -1, 1],
-        [7, -1, -1, -1, 2, -1, -1, -1, 6],
-        [-1, 6, -1, -1, -1, -1, 2, 8, -1],
-        [-1, -1, -1, 4, 1, 9, -1, -1, 5],
-        [-1, -1, -1, -1, 8, -1, -1, 7, 9]
+# Function to play the Sudoku game
+def play_game():
+    # Sample Sudoku board (0s represent empty spaces)
+    board = [
+        [5, 3, 0, 0, 7, 0, 0, 0, 0],
+        [6, 0, 0, 1, 9, 5, 0, 0, 0],
+        [0, 9, 8, 0, 0, 0, 0, 6, 0],
+        [8, 0, 0, 0, 6, 0, 0, 0, 3],
+        [4, 0, 0, 8, 0, 3, 0, 0, 1],
+        [7, 0, 0, 0, 2, 0, 0, 0, 6],
+        [0, 6, 0, 0, 0, 0, 2, 8, 0],
+        [0, 0, 0, 4, 1, 9, 0, 0, 5],
+        [0, 0, 0, 0, 8, 0, 0, 7, 9]
     ]
 
-    if solve_sudoku(sudoku_puzzle):
-        for row in sudoku_puzzle:
-            print(row)
-    else:
-        print("No solution exists")
+    print("Welcome to Sudoku!")
+    print_board(board)
+
+    while True:
+        row = int(input("Enter row (1-9): ")) - 1
+        col = int(input("Enter column (1-9): ")) - 1
+        num = int(input("Enter number (1-9): "))
+
+        if valid(board, num, (row, col)):
+            board[row][col] = num
+            print("Updated board:")
+            print_board(board)
+        else:
+            print("Invalid move. Try again.")
+
+        if find_empty(board) is None:
+            print("Congratulations, you solved the Sudoku!")
+            break
+
+# Start the game
+play_game()
