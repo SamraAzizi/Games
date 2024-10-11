@@ -21,13 +21,3 @@ The code is organized into several functions:
 * `solve(board)`: solves the Sudoku board using backtracking (not used in the game, but included for completeness).
 * `play_game()`: starts the game and handles user input.
 
-## Example Use Case
-
-To play the game, simply run the `play_game()` function. The game will prompt you to enter a row, column, and number to place on the board.
-
-## Notes
-
-* The game uses a simple text-based interface.
-* The game does not include any error checking for invalid input (e.g., non-integer input).
-* The game does not include any features for saving or loading games.
-
