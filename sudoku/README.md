@@ -1,4 +1,5 @@
 # Sudoku Game
+--------------------------------
 
 This is a simple implementation of a Sudoku game in Python. The game allows users to play a game of Sudoku by inputting numbers into a 9x9 grid.
 
