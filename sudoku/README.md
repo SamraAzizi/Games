@@ -31,9 +31,3 @@ To play the game, simply run the `play_game()` function. The game will prompt yo
 * The game does not include any error checking for invalid input (e.g., non-integer input).
 * The game does not include any features for saving or loading games.
 
-## Future Development
-
-* Add error checking for invalid input.
-* Implement a feature for saving and loading games.
-* Improve the user interface (e.g., use a GUI library).
-* Add additional features (e.g., hint system, timer).
