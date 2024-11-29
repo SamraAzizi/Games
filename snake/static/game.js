@@ -5,6 +5,12 @@ const GRID_SIZE = 20;
 const GRID_WIDTH = canvas.width / GRID_SIZE;
 const GRID_HEIGHT = canvas.height / GRID_SIZE;
 
+// Game state
+let isPaused = false;
+let gameSpeed = 100; // milliseconds between updates
+let lastRenderTime = 0;
+let score = 0;
+
 class Snake {
     constructor() {
         this.reset();
@@ -69,9 +75,11 @@ class Snake {
     }
 
     draw() {
-        ctx.fillStyle = 'white';
-        this.positions.forEach(position => {
-            ctx.fillRect(position.x, position.y, GRID_SIZE - 2, GRID_SIZE - 2);
+        ctx.fillStyle = '#4ecca3'; // Updated snake color to match theme
+        this.positions.forEach((position, index) => {
+            // Make head slightly larger
+            const size = index === 0 ? GRID_SIZE : GRID_SIZE - 2;
+            ctx.fillRect(position.x, position.y, size - 2, size - 2);
         });
     }
 }
@@ -90,37 +98,74 @@ class Food {
     }
 
     draw() {
-        ctx.fillStyle = 'red';
-        ctx.fillRect(this.position.x, this.position.y, GRID_SIZE - 2, GRID_SIZE - 2);
+        ctx.fillStyle = '#ff6b6b'; // Updated food color
+        ctx.beginPath();
+        const centerX = this.position.x + GRID_SIZE / 2;
+        const centerY = this.position.y + GRID_SIZE / 2;
+        ctx.arc(centerX, centerY, (GRID_SIZE - 4) / 2, 0, 2 * Math.PI);
+        ctx.fill();
     }
 }
 
 let snake = new Snake();
 let food = new Food();
-let score = 0;
 
 function updateScore() {
     document.getElementById('score').textContent = `Score: ${score}`;
 }
 
-function gameLoop() {
-    ctx.fillStyle = 'black';
+function drawPauseScreen() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    snake.move();
     
-    // Check for food collision
-    if (snake.positions[0].x === food.position.x && snake.positions[0].y === food.position.y) {
-        snake.length++;
-        food.randomize();
-        score++;
-        updateScore();
+    ctx.fillStyle = '#4ecca3';
+    ctx.font = '30px "Press Start 2P"';
+    ctx.textAlign = 'center';
+    ctx.fillText('PAUSED', canvas.width / 2, canvas.height / 2);
+    ctx.font = '16px "Press Start 2P"';
+    ctx.fillText('Press SPACE to resume', canvas.width / 2, canvas.height / 2 + 40);
+}
+
+function gameLoop(currentTime) {
+    window.requestAnimationFrame(gameLoop);
+
+    // Convert to seconds
+    const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
+
+    // If paused, just draw pause screen and return
+    if (isPaused) {
+        drawPauseScreen();
+        return;
     }
 
+    // Only update if enough time has passed
+    if (secondsSinceLastRender < gameSpeed / 1000) return;
+
+    lastRenderTime = currentTime;
+
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Update game state
+    snake.move();
+
+    // Check if snake ate food
+    if (snake.positions[0].x === food.position.x && 
+        snake.positions[0].y === food.position.y) {
+        snake.length++;
+        score += 10;
+        updateScore();
+        food.randomize();
+        // Increase game speed slightly
+        gameSpeed = Math.max(50, gameSpeed - 1);
+    }
+
+    // Draw everything
     snake.draw();
     food.draw();
 }
 
+// Input handling
 document.addEventListener('keydown', (event) => {
     switch (event.key) {
         case 'ArrowUp':
@@ -135,8 +180,11 @@ document.addEventListener('keydown', (event) => {
         case 'ArrowRight':
             if (snake.direction !== 'LEFT') snake.direction = 'RIGHT';
             break;
+        case ' ': // Space bar
+            isPaused = !isPaused;
+            break;
     }
 });
 
 // Start the game
-setInterval(gameLoop, 100);
+gameLoop();
