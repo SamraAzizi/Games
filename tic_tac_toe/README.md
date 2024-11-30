@@ -1,32 +1,130 @@
-# Tic Tac Toe Game
+# Tic Tac Toe Web Game
 
-This is a simple implementation of the classic Tic Tac Toe game in Python.
+A modern, responsive web-based implementation of the classic Tic Tac Toe game built with Flask and modern web technologies.
+
+![Tic Tac Toe Game](game-preview.png)
+
+## Features
+
+- Clean and intuitive user interface
+- Smooth animations and transitions
+- Modern glassmorphism design
+- Fully responsive for all devices
+- Real-time game state updates
+- Easy game reset functionality
+- Win and tie detection
+- Different colors for X and O
+
+## Technologies Used
+
+- **Backend**: Python Flask
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Styling**: Modern CSS with Flexbox and Grid
+- **Fonts**: Google Fonts (Poppins)
+- **Animations**: CSS Keyframes
+
+## Prerequisites
+
+- Python 3.6 or higher
+- Flask
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/tic-tac-toe.git
+   cd tic-tac-toe
+   ```
+
+2. Create a virtual environment (optional but recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Running the Game
+
+1. Start the Flask server:
+   ```bash
+   python app.py
+   ```
+
+2. Open your web browser and navigate to:
+   ```
+   http://localhost:5000
+   ```
 
 ## How to Play
 
-1. **Objective:** The goal is to be the first player to get three of their symbols (X or O) in a row, column, or diagonal.
-2. **Players:** Two players take turns marking spaces on a 3x3 grid with their respective symbols.
-3. **Winning Conditions:** The game ends when one player achieves three of their symbols in a row, column, or diagonal.
-4. **Draw:** If all spaces on the board are filled without a winner, the game ends in a draw.
+1. The game starts with Player X
+2. Players take turns clicking on empty cells to place their symbol (X or O)
+3. The first player to get three of their symbols in a row (horizontally, vertically, or diagonally) wins
+4. If all cells are filled and no player has won, the game is a tie
+5. Click "New Game" to reset the board at any time
 
-## Setup
+## Project Structure
 
-1. **Run the Game:** Execute the `tic_tac_toe.py` file using Python:
-    ```
-    python tic_tac_toe.py
-    ```
+```
+tic-tac-toe/
+│
+├── app.py              # Flask application and game logic
+├── requirements.txt    # Python dependencies
+├── README.md          # Project documentation
+│
+└── templates/
+    └── index.html     # Game interface and frontend logic
+```
 
-## How to Play
+## Game Features
 
-1. **Instructions:** Follow the on-screen prompts to enter the row and column where you want to place your symbol.
-2. **Input Format:** Enter the row and column numbers separated by a space (e.g., `1 2` for row 1, column 2).
-3. **Validation:** The game will prevent players from placing their symbols in already occupied spaces.
-## Customization
+### Backend (app.py)
+- Game state management
+- Move validation
+- Win condition checking
+- API endpoints for game actions
 
-- You can modify the symbols used for the players by changing the `"X"` and `"O"` strings in the `players` list.
-- Enjoy playing
+### Frontend (index.html)
+- Responsive grid layout
+- Interactive game board
+- Real-time updates
+- Visual feedback
+- Smooth animations
+- Mobile-friendly design
 
+## Contributing
 
+1. Fork the repository
+2. Create a new branch
+3. Make your changes
+4. Submit a pull request
 
+## License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Acknowledgments
+
+- Inspired by the classic Tic Tac Toe game
+- Modern UI design principles
+- Flask web framework
+- The open-source community
+
+## Future Improvements
+
+- Add multiplayer support
+- Implement AI opponent
+- Add sound effects
+- Save game statistics
+- Add player names
+- Create difficulty levels
+- Add game history
+- Implement user accounts
+
+---
+
+Made with ❤️ by [Your Name]
