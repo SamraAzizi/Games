@@ -1,130 +1,45 @@
-# Tic Tac Toe Web Game
+# Tic Tac Toe with AI
 
-A modern, responsive web-based implementation of the classic Tic Tac Toe game built with Flask and modern web technologies.
-
-![Tic Tac Toe Game](game-preview.png)
+A web-based Tic Tac Toe game with an AI opponent, built using Flask.
 
 ## Features
 
-- Clean and intuitive user interface
-- Smooth animations and transitions
-- Modern glassmorphism design
-- Fully responsive for all devices
-- Real-time game state updates
-- Easy game reset functionality
-- Win and tie detection
-- Different colors for X and O
+- Play against AI or another player
+- Modern, responsive design
+- Easy-to-use interface
+- Unbeatable AI opponent
 
-## Technologies Used
+## Setup
 
-- **Backend**: Python Flask
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Styling**: Modern CSS with Flexbox and Grid
-- **Fonts**: Google Fonts (Poppins)
-- **Animations**: CSS Keyframes
+1. Install Python and Flask:
+```bash
+pip install flask==2.3.3
+```
 
-## Prerequisites
+2. Run the game:
+```bash
+python app.py
+```
 
-- Python 3.6 or higher
-- Flask
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/tic-tac-toe.git
-   cd tic-tac-toe
-   ```
-
-2. Create a virtual environment (optional but recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install the required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Running the Game
-
-1. Start the Flask server:
-   ```bash
-   python app.py
-   ```
-
-2. Open your web browser and navigate to:
-   ```
-   http://localhost:5000
-   ```
+3. Open in browser:
+```
+http://localhost:5000
+```
 
 ## How to Play
 
-1. The game starts with Player X
-2. Players take turns clicking on empty cells to place their symbol (X or O)
-3. The first player to get three of their symbols in a row (horizontally, vertically, or diagonally) wins
-4. If all cells are filled and no player has won, the game is a tie
-5. Click "New Game" to reset the board at any time
+1. Choose game mode: "vs AI" or "2 Players"
+2. Click any empty square to make your move
+3. Try to get three in a row to win
+4. Click "New Game" to restart
 
-## Project Structure
+## Technologies Used
 
-```
-tic-tac-toe/
-│
-├── app.py              # Flask application and game logic
-├── requirements.txt    # Python dependencies
-├── README.md          # Project documentation
-│
-└── templates/
-    └── index.html     # Game interface and frontend logic
-```
+- Python Flask
+- HTML/CSS
+- JavaScript
+- Minimax Algorithm for AI
 
-## Game Features
+## Created By
 
-### Backend (app.py)
-- Game state management
-- Move validation
-- Win condition checking
-- API endpoints for game actions
-
-### Frontend (index.html)
-- Responsive grid layout
-- Interactive game board
-- Real-time updates
-- Visual feedback
-- Smooth animations
-- Mobile-friendly design
-
-## Contributing
-
-1. Fork the repository
-2. Create a new branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Inspired by the classic Tic Tac Toe game
-- Modern UI design principles
-- Flask web framework
-- The open-source community
-
-## Future Improvements
-
-- Add multiplayer support
-- Implement AI opponent
-- Add sound effects
-- Save game statistics
-- Add player names
-- Create difficulty levels
-- Add game history
-- Implement user accounts
-
----
-
-Made with ❤️ by [Your Name]
+[Your Name]

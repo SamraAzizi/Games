@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Tic Tac Toe</title>
+    <title>Tic Tac Toe with AI</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -45,6 +45,35 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
+        .mode-select {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .mode-btn {
+            padding: 10px 20px;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mode-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        .mode-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
         .board {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -81,12 +110,11 @@
             transform: scale(0.95);
         }
 
-        /* Style X and O differently */
-        .cell:has(text="X") {
+        .cell[data-value="X"] {
             color: #ff6b6b;
         }
 
-        .cell:has(text="O") {
+        .cell[data-value="O"] {
             color: #4ecdc4;
         }
 
@@ -116,7 +144,6 @@
             transform: translateY(0);
         }
 
-        /* Add animation for moves */
         @keyframes pop {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
@@ -126,7 +153,6 @@
             animation: pop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        /* Responsive design */
         @media (max-width: 500px) {
             .container {
                 padding: 1rem;
@@ -155,32 +181,61 @@
                 padding: 10px 20px;
                 font-size: 1em;
             }
+
+            .mode-btn {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Tic Tac Toe</h1>
+        <div class="mode-select">
+            <button class="mode-btn active" onclick="setMode('ai')">vs AI</button>
+            <button class="mode-btn" onclick="setMode('2player')">2 Players</button>
+        </div>
         <div id="status">Player X's turn</div>
         <div class="board">
-            <div class="cell" onclick="makeMove(0)"></div>
-            <div class="cell" onclick="makeMove(1)"></div>
-            <div class="cell" onclick="makeMove(2)"></div>
-            <div class="cell" onclick="makeMove(3)"></div>
-            <div class="cell" onclick="makeMove(4)"></div>
-            <div class="cell" onclick="makeMove(5)"></div>
-            <div class="cell" onclick="makeMove(6)"></div>
-            <div class="cell" onclick="makeMove(7)"></div>
-            <div class="cell" onclick="makeMove(8)"></div>
+            <div class="cell" onclick="makeMove(0)" data-value=""></div>
+            <div class="cell" onclick="makeMove(1)" data-value=""></div>
+            <div class="cell" onclick="makeMove(2)" data-value=""></div>
+            <div class="cell" onclick="makeMove(3)" data-value=""></div>
+            <div class="cell" onclick="makeMove(4)" data-value=""></div>
+            <div class="cell" onclick="makeMove(5)" data-value=""></div>
+            <div class="cell" onclick="makeMove(6)" data-value=""></div>
+            <div class="cell" onclick="makeMove(7)" data-value=""></div>
+            <div class="cell" onclick="makeMove(8)" data-value=""></div>
         </div>
         <button onclick="resetGame()">New Game</button>
     </div>
 
     <script>
+        let currentMode = 'ai';
+
+        function setMode(mode) {
+            const buttons = document.querySelectorAll('.mode-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            currentMode = mode;
+            
+            fetch('/set_mode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mode: mode })
+            })
+            .then(response => response.json())
+            .then(() => resetGame());
+        }
+
         function updateBoard(board) {
             const cells = document.getElementsByClassName('cell');
             for (let i = 0; i < 9; i++) {
                 cells[i].textContent = board[i];
+                cells[i].setAttribute('data-value', board[i]);
             }
         }
 
@@ -224,4 +279,3 @@
     </script>
 </body>
 </html>
-
