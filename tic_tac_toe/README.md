@@ -2,7 +2,7 @@
 
 A modern, responsive web-based implementation of the classic Tic Tac Toe game built with Flask and modern web technologies.
 
-![Tic Tac Toe Game](game-preview.png)
+
 
 ## Features
 
@@ -23,29 +23,6 @@ A modern, responsive web-based implementation of the classic Tic Tac Toe game bu
 - **Fonts**: Google Fonts (Poppins)
 - **Animations**: CSS Keyframes
 
-## Prerequisites
-
-- Python 3.6 or higher
-- Flask
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/tic-tac-toe.git
-   cd tic-tac-toe
-   ```
-
-2. Create a virtual environment (optional but recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install the required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
 
 ## Running the Game
 
@@ -67,18 +44,7 @@ A modern, responsive web-based implementation of the classic Tic Tac Toe game bu
 4. If all cells are filled and no player has won, the game is a tie
 5. Click "New Game" to reset the board at any time
 
-## Project Structure
 
-```
-tic-tac-toe/
-│
-├── app.py              # Flask application and game logic
-├── requirements.txt    # Python dependencies
-├── README.md          # Project documentation
-│
-└── templates/
-    └── index.html     # Game interface and frontend logic
-```
 
 ## Game Features
 
@@ -96,23 +62,7 @@ tic-tac-toe/
 - Smooth animations
 - Mobile-friendly design
 
-## Contributing
 
-1. Fork the repository
-2. Create a new branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Inspired by the classic Tic Tac Toe game
-- Modern UI design principles
-- Flask web framework
-- The open-source community
 
 ## Future Improvements
 
@@ -125,6 +75,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Add game history
 - Implement user accounts
 
----
-
-Made with ❤️ by [Your Name]
