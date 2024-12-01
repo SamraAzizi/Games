@@ -135,10 +135,3 @@ sudoku/
 - [ ] Dark mode theme
 - [ ] Multiplayer support
 
-## Contributing
-
-Feel free to fork this project and submit pull requests. You can also open issues for bugs or feature requests.
-
-## License
-
-This project is open source and available under the MIT License.
