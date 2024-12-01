@@ -134,7 +134,3 @@ sudoku/
 - [ ] Custom puzzle creation
 - [ ] Dark mode theme
 - [ ] Multiplayer support
-<<<<<<< HEAD
-=======
-
->>>>>>> 696130bd6b099fd8cc39d632671749204a4e263c
