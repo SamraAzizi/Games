@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #ffeaf4;
+            color: #ff69b4;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .choices {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .choice {
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #fff;
+            color: #ff69b4;
+            border: 3px solid #ff69b4;
+            border-radius: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            min-width: 150px;
+        }
+        .choice:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-color: #ff69b4;
+            color: white;
+        }
+        .choice span {
+            font-size: 40px;
+        }
+        #result {
+            margin-top: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        #computer-choice {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #ff69b4;
+            display: none;
+        }
+        .game-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .title-emoji {
+            font-size: 40px;
+            margin: 0 10px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <span class="title-emoji">🎮</span>
+        Rock Paper Scissors
+        <span class="title-emoji">🎮</span>
+    </h1>
+    <div class="game-container">
+        <div class="choices">
+            <button class="choice" onclick="play('rock')">
+                <span>🪨</span>
+                Rock
+            </button>
+            <button class="choice" onclick="play('paper')">
+                <span>📄</span>
+                Paper
+            </button>
+            <button class="choice" onclick="play('scissors')">
+                <span>✂️</span>
+                Scissors
+            </button>
+        </div>
+        <div id="computer-choice"></div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function play(choice) {
+            fetch('/play', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({choice: choice})
+            })
+            .then(response => response.json())
+            .then(data => {
+                const computerChoice = document.getElementById('computer-choice');
+                const result = document.getElementById('result');
+                
+                // Add emojis based on computer's choice
+                let computerEmoji = '';
+                switch(data.computer_choice) {
+                    case 'rock': computerEmoji = '🪨'; break;
+                    case 'paper': computerEmoji = '📄'; break;
+                    case 'scissors': computerEmoji = '✂️'; break;
+                }
+                
+                computerChoice.textContent = `Computer chose: ${computerEmoji} ${data.computer_choice}`;
+                result.textContent = data.result;
+                
+                // Show elements with animation
+                computerChoice.style.display = 'block';
+                result.style.display = 'block';
+                
+                // Apply animation
+                computerChoice.style.animation = 'fadeIn 0.5s ease-out';
+                result.style.animation = 'fadeIn 0.5s ease-out';
+            });
+        }
+    </script>
+</body>
+</html>
