@@ -1,17 +1,17 @@
-# 🎮 Rock Paper Scissors Web Game
+#  Rock Paper Scissors Web Game
 
 A cute and interactive web-based implementation of the classic Rock Paper Scissors game built with Flask. Play against the computer in a beautifully designed interface!
 
-## ✨ Features
+##  Features
 
-- 🎯 Simple and intuitive user interface
-- 🎨 Cute design with animations and emojis
-- 🤖 Play against a computer opponent
-- 📱 Responsive design - works on both desktop and mobile
-- 🎆 Smooth animations and visual feedback
-- 🎯 Instant results display
+-  Simple and intuitive user interface
+-  Cute design with animations and emojis
+-  Play against a computer opponent
+-  Responsive design - works on both desktop and mobile
+-  Smooth animations and visual feedback
+-  Instant results display
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -60,25 +60,25 @@ python app.py
 http://localhost:5000
 ```
 
-## 🎮 How to Play
+##  How to Play
 
 1. Open the game in your web browser
 2. Choose your move by clicking one of three buttons:
-   - 🪨 Rock
-   - 📄 Paper
-   - ✂️ Scissors
+   -  Rock
+   -  Paper
+   - ✂ Scissors
 3. The computer will make its choice
 4. The result will be displayed immediately with a nice animation
 5. Play again as many times as you want!
 
-## 🎯 Game Rules
+##  Game Rules
 
-- 🪨 Rock beats ✂️ Scissors
-- ✂️ Scissors beats 📄 Paper
-- 📄 Paper beats 🪨 Rock
+-  Rock beats Scissors
+-  Scissors beats  Paper
+-  Paper beats  Rock
 - If both players choose the same option, it's a tie!
 
-## 🛠️ Technical Details
+##  Technical Details
 
 ### Project Structure
 ```
@@ -102,7 +102,7 @@ rock_paper_scissors/
   - JavaScript (Fetch API)
   - Google Fonts (Comic Neue)
 
-## 🤝 Contributing
+##  Contributing
 
 Feel free to fork this project and make your own changes! Some ideas for improvements:
 
@@ -112,15 +112,15 @@ Feel free to fork this project and make your own changes! Some ideas for improve
 - Create different themes
 - Add game statistics
 
-## 📝 License
+##  License
 
 This project is open source and available under the MIT License.
 
-## 👥 Author
+##  Author
 
-Created with ❤️ by [Your Name]
+Created with  by [Your Name]
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Inspiration from the classic Rock Paper Scissors game
 - Flask documentation and community
