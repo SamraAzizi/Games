@@ -102,26 +102,4 @@ rock_paper_scissors/
   - JavaScript (Fetch API)
   - Google Fonts (Comic Neue)
 
-##  Contributing
 
-Feel free to fork this project and make your own changes! Some ideas for improvements:
-
-- Add a score counter
-- Implement multiplayer functionality
-- Add sound effects
-- Create different themes
-- Add game statistics
-
-##  License
-
-This project is open source and available under the MIT License.
-
-##  Author
-
-Created with  by [Your Name]
-
-##  Acknowledgments
-
-- Inspiration from the classic Rock Paper Scissors game
-- Flask documentation and community
-- All contributors and users of the game
