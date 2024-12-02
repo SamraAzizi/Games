@@ -66,7 +66,7 @@ http://localhost:5000
 2. Choose your move by clicking one of three buttons:
    -  Rock
    -  Paper
-   - ✂ Scissors
+   -  Scissors
 3. The computer will make its choice
 4. The result will be displayed immediately with a nice animation
 5. Play again as many times as you want!
