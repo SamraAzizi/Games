@@ -7,36 +7,94 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f0f2f5;
             padding-top: 50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .quiz-container {
             max-width: 800px;
             margin: 0 auto;
             background-color: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .option-btn {
             width: 100%;
             margin: 10px 0;
-            padding: 15px;
+            padding: 15px 20px;
             text-align: left;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
         }
         .option-btn:hover {
             transform: translateX(10px);
+            background-color: #f8f9fa;
+            border-color: #0d6efd;
+        }
+        .option-btn:active {
+            transform: scale(0.98);
+        }
+        .option-btn.correct {
+            background-color: #d4edda !important;
+            border-color: #198754 !important;
+            color: #198754 !important;
+        }
+        .option-btn.wrong {
+            background-color: #f8d7da !important;
+            border-color: #dc3545 !important;
+            color: #dc3545 !important;
+        }
+        .option-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .option-btn.correct::before {
+            background-color: #198754;
+            border-color: #198754;
+        }
+        .option-btn.wrong::before {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .option-btn span {
+            margin-left: 40px;
         }
         .progress {
             height: 10px;
             margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+        .progress-bar {
+            background-color: #0d6efd;
+            transition: width 0.5s ease;
         }
         .category-badge {
             margin-bottom: 15px;
+            padding: 8px 16px;
+            font-size: 1rem;
+            border-radius: 20px;
         }
         .results-table {
             margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .results-table th {
+            background-color: #f8f9fa;
         }
         .correct-answer {
             color: #198754;
@@ -46,12 +104,38 @@
             color: #dc3545;
             text-decoration: line-through;
         }
+        .score-display {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        #start-btn, #restart-btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        #start-btn:hover, #restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .question-header {
+            margin-bottom: 25px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="quiz-container">
-            <div id="start-screen">
+            <div id="start-screen" class="fade-in">
                 <h1 class="text-center mb-4">Welcome to the Quiz!</h1>
                 <p class="text-center">Test your knowledge across various categories with this fun quiz.</p>
                 <button id="start-btn" class="btn btn-primary w-100">Start Quiz</button>
@@ -61,16 +145,24 @@
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 0%"></div>
                 </div>
-                <span id="category-badge" class="badge bg-primary category-badge"></span>
-                <h3 id="question-text" class="mb-4"></h3>
-                <div id="options-container"></div>
-                <div class="mt-3">
-                    <p class="text-muted">Question <span id="current-question">0</span> of <span id="total-questions">0</span></p>
-                    <p class="text-muted">Current Score: <span id="current-score">0</span></p>
+                <div class="question-header fade-in">
+                    <span id="category-badge" class="badge bg-primary category-badge"></span>
+                    <h3 id="question-text" class="mb-4"></h3>
+                </div>
+                <div id="options-container" class="fade-in"></div>
+                <div class="mt-4 score-display">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="mb-0">Question <span id="current-question">0</span> of <span id="total-questions">0</span></p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <p class="mb-0">Score: <span id="current-score">0</span></p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div id="result-screen" style="display: none;">
+            <div id="result-screen" style="display: none;" class="fade-in">
                 <h2 class="text-center mb-4">Quiz Complete!</h2>
                 <div class="text-center mb-4">
                     <h3>Your score: <span id="final-score">0</span> out of <span id="total-score">0</span></h3>
@@ -94,7 +186,7 @@
                     </table>
                 </div>
                 
-                <button id="restart-btn" class="btn btn-primary mt-3">Restart Quiz</button>
+                <button id="restart-btn" class="btn btn-primary w-100">Try Again</button>
             </div>
         </div>
     </div>
@@ -137,8 +229,9 @@
                     
                     data.options.forEach((option, index) => {
                         const button = document.createElement('button');
-                        button.className = 'btn btn-outline-primary option-btn';
-                        button.textContent = option;
+                        button.className = 'option-btn fade-in';
+                        button.style.animationDelay = `${index * 0.1}s`;
+                        button.innerHTML = `<span>${option}</span>`;
                         button.addEventListener('click', () => checkAnswer(option));
                         optionsContainer.appendChild(button);
                     });
@@ -161,12 +254,11 @@
                 score = data.score;
                 const buttons = document.querySelectorAll('.option-btn');
                 buttons.forEach(button => {
-                    if (button.textContent === data.correct_answer) {
-                        button.classList.remove('btn-outline-primary');
-                        button.classList.add('btn-success');
-                    } else if (button.textContent === selectedAnswer && !data.correct) {
-                        button.classList.remove('btn-outline-primary');
-                        button.classList.add('btn-danger');
+                    const buttonText = button.querySelector('span').textContent;
+                    if (buttonText === data.correct_answer) {
+                        button.classList.add('correct');
+                    } else if (buttonText === selectedAnswer && !data.correct) {
+                        button.classList.add('wrong');
                     }
                 });
 
@@ -189,8 +281,10 @@
             const resultsBody = document.getElementById('results-body');
             resultsBody.innerHTML = '';
             
-            answeredQuestions.forEach(result => {
+            answeredQuestions.forEach((result, index) => {
                 const row = document.createElement('tr');
+                row.className = 'fade-in';
+                row.style.animationDelay = `${index * 0.1}s`;
                 row.innerHTML = `
                     <td>${result.category}</td>
                     <td>${result.question}</td>
