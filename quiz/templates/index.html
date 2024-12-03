@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .option-btn {
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            text-align: left;
+            transition: all 0.3s;
+        }
+        .option-btn:hover {
+            transform: translateX(10px);
+        }
+        .progress {
+            height: 10px;
+            margin-bottom: 20px;
+        }
+        .category-badge {
+            margin-bottom: 15px;
+        }
+        .results-table {
+            margin-top: 20px;
+        }
+        .correct-answer {
+            color: #198754;
+            font-weight: bold;
+        }
+        .wrong-answer {
+            color: #dc3545;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="quiz-container">
+            <div id="start-screen">
+                <h1 class="text-center mb-4">Welcome to the Quiz!</h1>
+                <p class="text-center">Test your knowledge across various categories with this fun quiz.</p>
+                <button id="start-btn" class="btn btn-primary w-100">Start Quiz</button>
+            </div>
+
+            <div id="quiz-screen" style="display: none;">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                </div>
+                <span id="category-badge" class="badge bg-primary category-badge"></span>
+                <h3 id="question-text" class="mb-4"></h3>
+                <div id="options-container"></div>
+                <div class="mt-3">
+                    <p class="text-muted">Question <span id="current-question">0</span> of <span id="total-questions">0</span></p>
+                    <p class="text-muted">Current Score: <span id="current-score">0</span></p>
+                </div>
+            </div>
+
+            <div id="result-screen" style="display: none;">
+                <h2 class="text-center mb-4">Quiz Complete!</h2>
+                <div class="text-center mb-4">
+                    <h3>Your score: <span id="final-score">0</span> out of <span id="total-score">0</span></h3>
+                    <div class="progress mt-3">
+                        <div id="final-progress" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <h4>Detailed Results:</h4>
+                <div class="table-responsive">
+                    <table class="table results-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Question</th>
+                                <th>Your Answer</th>
+                                <th>Correct Answer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body"></tbody>
+                    </table>
+                </div>
+                
+                <button id="restart-btn" class="btn btn-primary mt-3">Restart Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        let score = 0;
+
+        document.getElementById('start-btn').addEventListener('click', startQuiz);
+        document.getElementById('restart-btn').addEventListener('click', () => {
+            window.location.reload();
+        });
+
+        function startQuiz() {
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('quiz-screen').style.display = 'block';
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            fetch('/question')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.finished) {
+                        showResults(data.score, data.total, data.answered_questions);
+                        return;
+                    }
+
+                    document.getElementById('category-badge').textContent = data.category;
+                    document.getElementById('question-text').textContent = data.question;
+                    document.getElementById('current-question').textContent = data.current_question;
+                    document.getElementById('total-questions').textContent = data.total_questions;
+                    document.getElementById('current-score').textContent = score;
+
+                    const progressPercentage = (data.current_question - 1) / data.total_questions * 100;
+                    document.querySelector('.progress-bar').style.width = progressPercentage + '%';
+
+                    const optionsContainer = document.getElementById('options-container');
+                    optionsContainer.innerHTML = '';
+                    
+                    data.options.forEach((option, index) => {
+                        const button = document.createElement('button');
+                        button.className = 'btn btn-outline-primary option-btn';
+                        button.textContent = option;
+                        button.addEventListener('click', () => checkAnswer(option));
+                        optionsContainer.appendChild(button);
+                    });
+                });
+        }
+
+        function checkAnswer(selectedAnswer) {
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(button => button.disabled = true);
+
+            fetch('/check_answer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ answer: selectedAnswer })
+            })
+            .then(response => response.json())
+            .then(data => {
+                score = data.score;
+                const buttons = document.querySelectorAll('.option-btn');
+                buttons.forEach(button => {
+                    if (button.textContent === data.correct_answer) {
+                        button.classList.remove('btn-outline-primary');
+                        button.classList.add('btn-success');
+                    } else if (button.textContent === selectedAnswer && !data.correct) {
+                        button.classList.remove('btn-outline-primary');
+                        button.classList.add('btn-danger');
+                    }
+                });
+
+                setTimeout(() => {
+                    loadQuestion();
+                }, 1500);
+            });
+        }
+
+        function showResults(score, total, answeredQuestions) {
+            document.getElementById('quiz-screen').style.display = 'none';
+            document.getElementById('result-screen').style.display = 'block';
+            document.getElementById('final-score').textContent = score;
+            document.getElementById('total-score').textContent = total;
+            
+            const percentage = (score / total) * 100;
+            document.getElementById('final-progress').style.width = percentage + '%';
+            document.getElementById('final-progress').textContent = Math.round(percentage) + '%';
+
+            const resultsBody = document.getElementById('results-body');
+            resultsBody.innerHTML = '';
+            
+            answeredQuestions.forEach(result => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${result.category}</td>
+                    <td>${result.question}</td>
+                    <td class="${result.is_correct ? 'correct-answer' : 'wrong-answer'}">${result.your_answer}</td>
+                    <td>${result.correct_answer}</td>
+                `;
+                resultsBody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>
