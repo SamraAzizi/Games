@@ -2,7 +2,7 @@
 
 A modern, responsive web-based quiz application built with Flask, featuring dynamic questions, beautiful animations, and instant feedback.
 
-## 🚀 Features
+##  Features
 
 - **Dynamic Question System**
   - 20 questions across 5 categories
@@ -24,7 +24,7 @@ A modern, responsive web-based quiz application built with Flask, featuring dyna
   - Technology
   - Sports
 
-## 🛠️ Main Components
+##  Main Components
 
 ### 1. Backend (`app.py`)
 - Flask application setup
@@ -55,13 +55,13 @@ A modern, responsive web-based quiz application built with Flask, featuring dyna
   - Score updates
   - Progress tracking
 
-## 📋 Requirements
+##  Requirements
 
 - Python 3.x
 - Flask 2.3.3
 - python-dotenv 1.0.0
 
-## 🚀 Installation
+##  Installation
 
 1. Clone the repository:
    ```bash
@@ -84,7 +84,7 @@ A modern, responsive web-based quiz application built with Flask, featuring dyna
    http://localhost:5000
    ```
 
-## 🎮 How to Play
+##  How to Play
 
 1. Click "Start Quiz" to begin
 2. Read each question carefully
@@ -93,7 +93,7 @@ A modern, responsive web-based quiz application built with Flask, featuring dyna
 5. View your final score and detailed results at the end
 6. Click "Try Again" to restart with randomized questions
 
-## 🎨 Styling Features
+##  Styling Features
 
 - **Color Scheme**
   - Primary: Modern blue gradient
@@ -113,7 +113,7 @@ A modern, responsive web-based quiz application built with Flask, featuring dyna
   - Touch-friendly buttons
   - Flexible container sizing
 
-## 🔧 Customization
+##  Customization
 
 ### Adding New Questions
 Edit `questions.py` and add new questions following this format:
@@ -137,26 +137,4 @@ The styles are defined in `templates/index.html` using CSS variables:
 }
 ```
 
-## 🤝 Contributing
 
-Feel free to:
-- Add more questions
-- Improve the UI/UX
-- Add new features
-- Fix bugs
-- Enhance documentation
-
-## 📝 License
-
-This project is open source and available under the MIT License.
-
-## 🔮 Future Enhancements
-
-- User authentication system
-- Difficulty levels
-- Time-based scoring
-- Leaderboard
-- Question categories filter
-- Multiple language support
-- Sound effects
-- Achievement system
