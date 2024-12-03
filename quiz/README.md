@@ -1,9 +1,10 @@
 # Interactive Quiz Web Application
+------------------------------------
 
 A modern, responsive web-based quiz application built with Flask, featuring dynamic questions, beautiful animations, and instant feedback.
 
 ##  Features
-
+-----------------------
 - **Dynamic Question System**
   - 20 questions across 5 categories
   - Randomized question order
@@ -25,7 +26,7 @@ A modern, responsive web-based quiz application built with Flask, featuring dyna
   - Sports
 
 ##  Main Components
-
+------------------------
 ### 1. Backend (`app.py`)
 - Flask application setup
 - Route handlers:
@@ -56,13 +57,13 @@ A modern, responsive web-based quiz application built with Flask, featuring dyna
   - Progress tracking
 
 ##  Requirements
-
+-----------------------
 - Python 3.x
 - Flask 2.3.3
 - python-dotenv 1.0.0
 
 ##  Installation
-
+---------------------------
 1. Clone the repository:
    ```bash
    git clone <repository-url>
@@ -85,7 +86,7 @@ A modern, responsive web-based quiz application built with Flask, featuring dyna
    ```
 
 ##  How to Play
-
+---------------------
 1. Click "Start Quiz" to begin
 2. Read each question carefully
 3. Select your answer from the options
@@ -114,7 +115,7 @@ A modern, responsive web-based quiz application built with Flask, featuring dyna
   - Flexible container sizing
 
 ##  Customization
-
+---------------------------
 ### Adding New Questions
 Edit `questions.py` and add new questions following this format:
 ```python
