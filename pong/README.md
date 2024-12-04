@@ -114,20 +114,4 @@ pong/
    - Check server logs for connection issues
    - Ensure WebSocket connection is established
 
-## Contributing
 
-Feel free to contribute to this project by:
-1. Forking the repository
-2. Creating a feature branch
-3. Committing your changes
-4. Opening a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Original Pong game by Atari
-- Flask and Socket.IO communities
-- Contributors and testers
