@@ -31,7 +31,7 @@ const keys = {
 
 // Simple key handler
 window.addEventListener('keydown', (e) => {
-    if (e.key === ' ' || e.code === 'Space') {
+    if (e.key === ' ' || e.code === 'Space') {    
         if (gameState.gameOver) {
             console.log('Space pressed - Resetting game');
             resetGame();
