@@ -11,7 +11,12 @@ games = {}
 
 def create_initial_state():
     return {
-        'ball': {'x': 400, 'y': 300, 'dx': 3, 'dy': 3},
+        'ball': {
+            'x': 400,
+            'y': 300,
+            'dx': 3 * random.choice([1, -1]),
+            'dy': 3 * random.choice([1, -1])
+        },
         'paddles': {'left': 300, 'right': 300},
         'scores': {'left': 0, 'right': 0},
         'powerUp': {'active': False, 'x': 0, 'y': 0, 'type': None},
@@ -45,32 +50,26 @@ def handle_paddle_move(data):
         games[game_id]['paddles'][paddle] = position
         emit('game_state', games[game_id], broadcast=True)
 
+@socketio.on('reset_game')
+def handle_reset(data):
+    game_id = data.get('game_id', 'default')
+    if game_id in games:
+        print('Resetting game')
+        games[game_id] = create_initial_state()
+        emit('game_state', games[game_id], broadcast=True)
+
 @socketio.on('update_ball')
 def handle_ball_update(data):
     game_id = data.get('game_id', 'default')
     if game_id in games:
-        print(f'Updating game state for {game_id}')
-        if data.get('gameOver') == False and games[game_id].get('gameOver') == True:
-            print('Game reset detected')
-            games[game_id] = {
-                'ball': data['ball'],
-                'paddles': data['paddles'],
-                'scores': data['scores'],
-                'powerUp': data.get('powerUp', {'active': False, 'x': 0, 'y': 0, 'type': None}),
-                'paddleSizes': data.get('paddleSizes', {'left': 90, 'right': 90}),
-                'gameOver': False,
-                'winner': None
-            }
-        else:
-            games[game_id].update({
-                'ball': data['ball'],
-                'scores': data['scores'],
-                'powerUp': data.get('powerUp', {'active': False, 'x': 0, 'y': 0, 'type': None}),
-                'paddleSizes': data.get('paddleSizes', {'left': 90, 'right': 90}),
-                'gameOver': data.get('gameOver', False),
-                'winner': data.get('winner', None)
-            })
-        print(f'Game state updated: gameOver={games[game_id]["gameOver"]}')
+        games[game_id].update({
+            'ball': data['ball'],
+            'scores': data['scores'],
+            'powerUp': data.get('powerUp', {'active': False, 'x': 0, 'y': 0, 'type': None}),
+            'paddleSizes': data.get('paddleSizes', {'left': 90, 'right': 90}),
+            'gameOver': data.get('gameOver', False),
+            'winner': data.get('winner', None)
+        })
         emit('game_state', games[game_id], broadcast=True)
 
 if __name__ == '__main__':

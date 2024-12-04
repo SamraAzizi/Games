@@ -7,8 +7,8 @@ const PADDLE_WIDTH = 15;
 const PADDLE_HEIGHT = 90;
 const BALL_SIZE = 30;
 const PADDLE_SPEED = 6;
-const WINNING_SCORE = 5;  // Score needed to win
-const POWER_UP_INTERVAL = 15000; // Power-up appears every 15 seconds
+const WINNING_SCORE = 5;
+const POWER_UP_INTERVAL = 15000;
 
 // Game state
 let gameState = {
@@ -26,14 +26,16 @@ const keys = {
     w: false,
     s: false,
     ArrowUp: false,
-    ArrowDown: false,
-    ' ': false  // Add space key to tracked keys
+    ArrowDown: false
 };
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === ' ' && gameState.gameOver) {
-        console.log('Space pressed - Resetting game');
-        resetGame();
+// Simple key handler
+window.addEventListener('keydown', (e) => {
+    if (e.key === ' ' || e.code === 'Space') {
+        if (gameState.gameOver) {
+            console.log('Space pressed - Resetting game');
+            resetGame();
+        }
         return;
     }
     
@@ -42,7 +44,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-document.addEventListener('keyup', (e) => {
+window.addEventListener('keyup', (e) => {
     if (keys.hasOwnProperty(e.key)) {
         keys[e.key] = false;
     }
@@ -55,15 +57,8 @@ socket.on('connect', () => {
 });
 
 socket.on('game_state', (state) => {
-    // Only update if we're not in a game over state or if the incoming state has a different game over status
     if (!gameState.gameOver || state.gameOver !== gameState.gameOver) {
-        gameState.ball = state.ball;
-        gameState.paddles = state.paddles;
-        gameState.scores = state.scores;
-        gameState.powerUp = state.powerUp;
-        gameState.paddleSizes = state.paddleSizes;
-        gameState.gameOver = state.gameOver;
-        gameState.winner = state.winner;
+        Object.assign(gameState, state);
     }
 });
 
@@ -118,6 +113,7 @@ function applyPowerUp(side) {
 
 function resetGame() {
     console.log('Resetting game state');
+    
     const newState = {
         ball: { 
             x: canvas.width / 2 - BALL_SIZE / 2,
@@ -136,15 +132,10 @@ function resetGame() {
         winner: null
     };
     
-    // Update local state
     Object.assign(gameState, newState);
     
-    // Notify server of reset
-    socket.emit('update_ball', {
-        game_id: 'default',
-        ...newState
-    });
-
+    socket.emit('reset_game', { game_id: 'default' });
+    
     console.log('Game state reset complete');
 }
 

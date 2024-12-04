@@ -29,3 +29,4 @@ questions = [
     {"category": "Sports", "question": "Which country hosted the 2016 Summer Olympics?", "options": ["Brazil", "China", "USA", "UK"], "answer": "Brazil"},
     {"category": "Sports", "question": "What sport is played at Wimbledon?", "options": ["Tennis", "Cricket", "Golf", "Rugby"], "answer": "Tennis"}
 ]
+
