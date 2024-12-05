@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'  # Change this to a secure secret key
 
 class MinesweeperGame:
-    def __init__(self, rows=12, cols=12, num_mines=20):
+    def __init__(self, rows=12, cols=12, num_mines=35):  # Increased from 20 to 35 mines
         self.rows = rows
         self.cols = cols
         self.num_mines = num_mines
@@ -98,7 +98,14 @@ def click():
         return jsonify({'error': 'No game in progress'}), 400
     
     game = MinesweeperGame()
-    game.__dict__ = game_dict
+    # Properly restore game state
+    game.rows = game_dict['rows']
+    game.cols = game_dict['cols']
+    game.num_mines = game_dict['num_mines']
+    game.board = game_dict['board']
+    game.mines = game_dict['mines']
+    game.revealed = game_dict['revealed']
+    game.game_over = game_dict['game_over']
     
     game.reveal(row, col)
     session['game'] = game.__dict__

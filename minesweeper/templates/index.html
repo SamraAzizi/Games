@@ -77,11 +77,12 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             background-color: var(--cell-unrevealed);
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            user-select: none;
         }
 
         .cell:hover {
@@ -99,14 +100,15 @@
             color: white;
         }
 
-        .cell[data-number="1"] { color: #2980b9; }
-        .cell[data-number="2"] { color: #27ae60; }
-        .cell[data-number="3"] { color: #c0392b; }
-        .cell[data-number="4"] { color: #8e44ad; }
-        .cell[data-number="5"] { color: #d35400; }
-        .cell[data-number="6"] { color: #16a085; }
-        .cell[data-number="7"] { color: #2c3e50; }
-        .cell[data-number="8"] { color: #7f8c8d; }
+        /* Enhanced number colors with better visibility */
+        .cell[data-number="1"] { color: #2980b9; font-weight: 700; } /* Blue */
+        .cell[data-number="2"] { color: #27ae60; font-weight: 700; } /* Green */
+        .cell[data-number="3"] { color: #e74c3c; font-weight: 700; } /* Red */
+        .cell[data-number="4"] { color: #8e44ad; font-weight: 700; } /* Purple */
+        .cell[data-number="5"] { color: #e67e22; font-weight: 700; } /* Orange */
+        .cell[data-number="6"] { color: #16a085; font-weight: 700; } /* Teal */
+        .cell[data-number="7"] { color: #2c3e50; font-weight: 700; } /* Dark Blue */
+        .cell[data-number="8"] { color: #7f8c8d; font-weight: 700; } /* Gray */
 
         .new-game-btn {
             padding: 12px 24px;
@@ -164,14 +166,25 @@
 
         function newGame() {
             fetch('/new-game')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     gameState = data;
                     renderBoard();
+                })
+                .catch(error => {
+                    console.error('Error starting new game:', error);
+                    alert('Failed to start new game. Please try again.');
                 });
         }
 
         function renderBoard() {
+            if (!gameState) return;
+            
             const board = document.getElementById('board');
             board.innerHTML = '';
             
@@ -206,7 +219,7 @@
         }
 
         function handleClick(row, col) {
-            if (gameState.gameOver) return;
+            if (!gameState || gameState.gameOver) return;
 
             fetch('/click', {
                 method: 'POST',
@@ -215,21 +228,30 @@
                 },
                 body: JSON.stringify({ row, col })
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 gameState = data;
                 renderBoard();
                 
                 if (gameState.gameOver) {
                     setTimeout(() => {
-                        alert('Game Over!');
+                        alert('Game Over! Click New Game to try again.');
                     }, 100);
                 }
+            })
+            .catch(error => {
+                console.error('Error handling click:', error);
+                alert('Failed to process move. Please try again.');
             });
         }
 
         // Start a new game when the page loads
-        newGame();
+        window.addEventListener('load', newGame);
     </script>
 </body>
 </html>
