@@ -74,3 +74,4 @@ def handle_ball_update(data):
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
+
