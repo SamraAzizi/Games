@@ -1,34 +1,148 @@
-# Minesweeper Game
+# 🎮 Flask Minesweeper
 
-This is a simple Minesweeper game implemented in Python using the Tkinter library.
+A modern, web-based implementation of the classic Minesweeper game built with Flask and JavaScript. This version features a clean, responsive design and smooth animations for an enhanced gaming experience.
 
-## How to Run
+![Minesweeper Game](https://raw.githubusercontent.com/username/minesweeper/main/screenshots/game.png)
 
-To run the Minesweeper game, follow these steps:
+## 🌟 Features
 
-1. Ensure you have Python installed on your system.
-2. Copy the provided code into a Python file (e.g., `minesweeper.py`) using a text editor like VSCode.
-3. Open a terminal or command prompt and navigate to the directory containing the Python file.
-4. Run the Python file by executing the command: `python minesweeper.py`.
-5. The Minesweeper game window should appear, allowing you to play the game.
+- 🎯 Classic Minesweeper gameplay
+- 💻 Responsive design that works on both desktop and mobile
+- 🎨 Modern UI with smooth animations
+- 🎮 Left-click to reveal cells
+- 💣 Dynamic mine placement
+- 🔢 Numerical hints showing adjacent mines
+- 🔄 Quick restart with "New Game" button
+- 🎯 Color-coded numbers for better visibility
 
-## Gameplay
+## 🚀 Getting Started
 
-- Left-click on a cell to reveal its content.
-- If a mine is revealed, the game ends.
-- If a cell without a mine is revealed, it shows the number of adjacent cells containing mines.
-- Right-click on a cell to flag it as a potential mine.
-- The objective is to reveal all cells that do not contain mines without triggering any mines.
+### Prerequisites
 
-## Controls
+- Python 3.8 or higher
+- pip (Python package installer)
 
-- Left-click: Reveal a cell
-- Right-click: Flag a cell as a potential mine
+### Installation
 
+1. Clone the repository:
+```bash
+git clone https://github.com/username/minesweeper.git
+cd minesweeper
+```
 
-## Dependencies
+2. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-- Python 3.x
-- Tkinter (usually comes pre-installed with Python)
+3. Run the application:
+```bash
+python app.py
+```
 
+4. Open your web browser and navigate to:
+```
+http://localhost:5000
+```
 
+## 🎮 How to Play
+
+1. **Starting the Game**
+   - Click any cell to start
+   - The first click is always safe
+   - Numbers reveal how many mines are adjacent to each cell
+
+2. **Game Rules**
+   - Each number shows how many mines are in the adjacent cells
+   - Left-click to reveal a cell
+   - If you reveal a mine, the game is over
+   - To win, reveal all cells except the mines
+
+3. **Number Colors**
+   - 1 (Blue): One adjacent mine
+   - 2 (Green): Two adjacent mines
+   - 3 (Red): Three adjacent mines
+   - 4 (Purple): Four adjacent mines
+   - 5 (Orange): Five adjacent mines
+   - 6 (Teal): Six adjacent mines
+   - 7 (Black): Seven adjacent mines
+   - 8 (Gray): Eight adjacent mines
+
+## 🛠️ Technical Details
+
+### Project Structure
+```
+minesweeper/
+├── app.py              # Main Flask application
+├── requirements.txt    # Python dependencies
+├── README.md          # Documentation
+└── templates/
+    └── index.html     # Game interface
+```
+
+### Technologies Used
+
+- **Backend**
+  - Flask 2.3.3: Web framework
+  - Flask-Session 0.5.0: Session management
+  - Python 3.8+: Programming language
+
+- **Frontend**
+  - HTML5: Structure
+  - CSS3: Styling with modern features
+  - JavaScript: Game logic and interactions
+  - Google Fonts (Roboto): Typography
+
+### Game Configuration
+
+The default game settings are:
+- Grid Size: 12x12
+- Number of Mines: 20
+- These can be modified in `app.py`
+
+## 🔧 Customization
+
+### Modifying Grid Size
+In `app.py`, update the initialization parameters:
+```python
+game = MinesweeperGame(rows=12, cols=12, num_mines=20)
+```
+
+### Changing Colors
+In `templates/index.html`, modify the CSS variables:
+```css
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    /* ... other color variables ... */
+}
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by the classic Microsoft Minesweeper
+- Built with modern web technologies
+- Designed for both desktop and mobile play
+
+## 📞 Support
+
+If you encounter any issues or have questions:
+1. Check the [Issues](https://github.com/username/minesweeper/issues) page
+2. Create a new issue if needed
+3. Provide detailed information about the problem
+
+---
+
+Made with ❤️ by [Your Name]
