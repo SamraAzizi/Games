@@ -2,7 +2,7 @@
 
 A modern, web-based implementation of the classic Minesweeper game built with Flask and JavaScript. This version features a clean, responsive design and smooth animations for an enhanced gaming experience.
 
-![Minesweeper Game](https://raw.githubusercontent.com/username/minesweeper/main/screenshots/game.png)
+
 
 ##  Features
 
