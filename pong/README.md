@@ -1,9 +1,9 @@
 # Modern Pong Game
-
+---------------------------
 A modern implementation of the classic Pong game using Flask and WebSocket for real-time multiplayer functionality. This version features a sleek design, power-ups, and smooth gameplay.
 
 ## Features
-
+-------------------------
 - **Real-time Multiplayer**: Built with Flask and WebSocket for smooth, lag-free gameplay
 - **Modern UI**: Clean, minimalist design with retro-inspired elements
 - **Power-up System**:
@@ -14,7 +14,7 @@ A modern implementation of the classic Pong game using Flask and WebSocket for r
 - **Visual Effects**: Glowing elements and smooth animations
 
 ## Installation
-
+-----------------------
 1. Clone the repository:
    ```bash
    git clone [your-repository-url]
@@ -37,7 +37,7 @@ A modern implementation of the classic Pong game using Flask and WebSocket for r
    ```
 
 ## How to Play
-
+------------------------
 ### Controls
 - **Left Paddle**: 
   - `W` key: Move Up
@@ -49,6 +49,7 @@ A modern implementation of the classic Pong game using Flask and WebSocket for r
   - `Space Bar`: Start new game after game over
 
 ### Game Rules
+-----------------------
 1. Each player controls a paddle on their side of the screen
 2. The ball bounces between paddles
 3. Miss the ball = opponent scores a point
@@ -64,7 +65,7 @@ A modern implementation of the classic Pong game using Flask and WebSocket for r
 - Strategic timing can turn the tide of the game
 
 ## Technical Details
-
+----------------------------
 ### Technologies Used
 - **Backend**: 
   - Flask (Python web framework)
@@ -86,6 +87,7 @@ pong/
 ```
 
 ### Key Components
+-------------------------
 - **Server-Side**:
   - Game state management
   - WebSocket event handling
@@ -99,6 +101,7 @@ pong/
 ## Troubleshooting
 
 ### Common Issues
+---------------------------
 1. **Game Not Loading**:
    - Ensure all requirements are installed
    - Check if Flask server is running
@@ -114,20 +117,4 @@ pong/
    - Check server logs for connection issues
    - Ensure WebSocket connection is established
 
-## Contributing
 
-Feel free to contribute to this project by:
-1. Forking the repository
-2. Creating a feature branch
-3. Committing your changes
-4. Opening a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Original Pong game by Atari
-- Flask and Socket.IO communities
-- Contributors and testers
