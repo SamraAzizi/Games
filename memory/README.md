@@ -1,22 +1,22 @@
 # Memory Game
-
+----------------------
 Memory Game is a classic concentration game where players try to match pairs of symbols hidden behind tiles. This web-based version is built using Flask and provides an interactive experience right in your browser.
 
 ## Features
-
+------------------------
 - Web-based interface accessible through any modern browser
 - Interactive tile flipping animations
 - Score tracking
 - Responsive design that works on both desktop and mobile devices
 
 ## Requirements
-
+---------------------
 - Python 3.x
 - Flask 2.3.3
 - Werkzeug 2.3.7
 
 ## Installation
-
+--------------------------
 1. Clone this repository or download the source code:
 ```bash
 git clone <repository-url>
@@ -45,7 +45,7 @@ http://localhost:5000
 ```
 
 ## How to Play
-
+-----------------------------
 1. Click on any tile to reveal the symbol hidden behind it
 2. Click on another tile to find its matching pair
 3. If the symbols match, the tiles remain revealed
