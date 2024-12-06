@@ -58,20 +58,7 @@ http://localhost:5000
 ```
 memory/
 ├── app.py              # Main Flask application file
-├── static/             # Static files (CSS, JS, images)
 ├── templates/          # HTML templates
 ├── requirements.txt    # Python dependencies
 └── README.md          # This file
 ```
-
-## Customization
-
-You can customize various aspects of the game by modifying:
-- The number of cards in the game
-- The symbols or images used
-- The styling and animations
-- The difficulty level
-
-## Contributing
-
-Feel free to fork this repository and submit pull requests to contribute to this project. You can also open issues for any bugs you find or features you'd like to suggest.
