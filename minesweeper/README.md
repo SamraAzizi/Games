@@ -1,21 +1,21 @@
-# 🎮 Flask Minesweeper
+#  Flask Minesweeper
 
 A modern, web-based implementation of the classic Minesweeper game built with Flask and JavaScript. This version features a clean, responsive design and smooth animations for an enhanced gaming experience.
 
-![Minesweeper Game](https://raw.githubusercontent.com/username/minesweeper/main/screenshots/game.png)
 
-## 🌟 Features
 
-- 🎯 Classic Minesweeper gameplay
-- 💻 Responsive design that works on both desktop and mobile
-- 🎨 Modern UI with smooth animations
-- 🎮 Left-click to reveal cells
-- 💣 Dynamic mine placement
-- 🔢 Numerical hints showing adjacent mines
-- 🔄 Quick restart with "New Game" button
-- 🎯 Color-coded numbers for better visibility
+##  Features
 
-## 🚀 Getting Started
+-  Classic Minesweeper gameplay
+-  Responsive design that works on both desktop and mobile
+-  Modern UI with smooth animations
+-  Left-click to reveal cells
+-  Dynamic mine placement
+-  Numerical hints showing adjacent mines
+-  Quick restart with "New Game" button
+-  Color-coded numbers for better visibility
+
+##  Getting Started
 
 ### Prerequisites
 
@@ -68,7 +68,7 @@ http://localhost:5000
    - 7 (Black): Seven adjacent mines
    - 8 (Gray): Eight adjacent mines
 
-## 🛠️ Technical Details
+##  Technical Details
 
 ### Project Structure
 ```
@@ -118,31 +118,3 @@ In `templates/index.html`, modify the CSS variables:
 }
 ```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Inspired by the classic Microsoft Minesweeper
-- Built with modern web technologies
-- Designed for both desktop and mobile play
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-1. Check the [Issues](https://github.com/username/minesweeper/issues) page
-2. Create a new issue if needed
-3. Provide detailed information about the problem
-
----
-
-Made with ❤️ by [Your Name]
