@@ -1,0 +1,151 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.word {
+    font-size: 3rem;
+    letter-spacing: 10px;
+    margin: 2rem 0;
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.game-info {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+.guessed-letters {
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.guess-form {
+    margin: 2rem 0;
+}
+
+input[type="text"] {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    width: 50px;
+    text-align: center;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0.5rem;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button.new-game {
+    background-color: var(--accent-color);
+}
+
+button.new-game:hover {
+    background-color: #c0392b;
+}
+
+.hangman-drawing {
+    margin: 2rem 0;
+    padding: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: white;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .word {
+        font-size: 2rem;
+        letter-spacing: 5px;
+    }
+
+    input[type="text"] {
+        width: 40px;
+        padding: 0.6rem;
+    }
+
+    button {
+        padding: 0.6rem 1.2rem;
+    }
+}
