@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Hangman Game</h1>
+        
+        <div class="word">{{ displayed_word }}</div>
+        
+        {% if message %}
+        <div class="message">{{ message }}</div>
+        {% endif %}
+        
+        <div class="game-info">
+            Attempts remaining: {{ attempts }}
+        </div>
+        
+        <div class="guessed-letters">
+            Guessed letters: {{ guessed_letters }}
+        </div>
+
+        {% if not game_over %}
+        <form class="guess-form" action="{{ url_for('guess') }}" method="post">
+            <input type="text" name="guess" maxlength="1" required autofocus 
+                   pattern="[A-Za-z]" title="Please enter a single letter">
+            <button type="submit">Guess</button>
+        </form>
+        {% endif %}
+
+        <a href="{{ url_for('new_game') }}"><button class="new-game" type="button">New Game</button></a>
+    </div>
+
+    <script>
+        // Auto-focus the input field and clear it after submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.querySelector('input[name="guess"]');
+            if (input) {
+                input.focus();
+                input.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
