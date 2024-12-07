@@ -1,33 +1,75 @@
-# Hangman
+# Hangman Web Game
 
-Hangman is a classic word guessing game where players try to guess a word by suggesting letters within a limited number of attempts. The game provides a fun way to challenge your vocabulary and deduction skills.
+A modern, web-based version of the classic Hangman word guessing game built with Flask. This game features a clean, responsive design and an intuitive user interface.
 
-## How to Play
+## Features
 
-1. **Getting Started**: Run the provided Python script (`hangman.py`) to start the game.
-
-2. **Word Selection**: A word is randomly chosen from a predefined list of words. Each letter of the word is represented by a dash ("_").
-
-3. **Guessing Letters**: The player guesses letters one at a time by typing them into the console.
-
-4. **Correct Guesses**: If the guessed letter is present in the chosen word, it will be revealed in its correct positions within the word.
-
-5. **Incorrect Guesses**: If the guessed letter is not in the word, a part of the hangman is drawn. The player has a limited number of attempts to guess the word correctly.
-
-6. **Winning the Game**: The player wins by correctly guessing all the letters in the word before running out of attempts.
-
-7. **Play Again**: After winning or losing, the player has the option to play again by typing "yes" or "no" in the console.
+- Classic Hangman gameplay
+- Modern, responsive web interface
+- Mobile-friendly design
+- Session-based game state management
+- Input validation and error handling
+- Immediate feedback on guesses
+- Random word selection from a curated list
 
 ## Requirements
 
 - Python 3.x
+- Flask 2.3.3
+- Werkzeug 2.3.7
 
-## Usage
+## Installation
 
-1. Clone this repository or download the `hangman.py` file.
+1. Clone this repository:
+   ```bash
+   git clone <repository-url>
+   cd hangman
+   ```
 
-2. Open a terminal or command prompt.
+2. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Navigate to the directory containing `hangman.py`.
+## Running the Game
 
-4. Run the game by executing the command:
+1. Start the Flask server:
+   ```bash
+   python app.py
+   ```
+
+2. Open your web browser and navigate to:
+   ```
+   http://localhost:5000
+   ```
+
+## How to Play
+
+1. Click "Start New Game" to begin
+2. Type a single letter and click "Guess" or press Enter
+3. You have 6 attempts to guess the word correctly
+4. The game shows which letters you've already guessed
+5. Start a new game at any time by clicking the "New Game" button
+
+## Project Structure
+
+```
+hangman/
+├── app.py              # Main Flask application
+├── requirements.txt    # Python dependencies
+├── static/
+│   └── css/
+│       └── style.css  # Game styling
+└── templates/
+    ├── index.html     # Welcome page
+    └── game.html      # Game interface
+```
+
+## Development
+
+The game is built with:
+- **Flask**: Web framework
+- **HTML5**: Structure
+- **CSS3**: Styling with modern features
+- **JavaScript**: Enhanced user interactions
+
