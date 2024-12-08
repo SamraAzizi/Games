@@ -1,24 +1,140 @@
-# Guess Number Game
+# Number Guessing Game 
 
-## Overview
+A modern, web-based number guessing game built with Flask. This interactive game challenges players to guess a randomly generated number between 1 and 100, providing feedback to help them find the correct answer.
 
-The "Guess Number" game is a simple Python program where the computer selects a random number within a specified range, and the player tries to guess that number. The computer provides hints (whether the guessed number is higher or lower than the secret number) until the player guesses the correct number.
+## Features
+
+- **Modern Web Interface**: Clean and responsive design that works on all devices
+- **Interactive Gameplay**: Real-time feedback on each guess
+- **Session Management**: Keeps track of game state and attempts
+- **Error Handling**: Graceful handling of invalid inputs
+- **Animations**: Smooth transitions and visual feedback
+- **Mobile-Friendly**: Responsive design that adapts to screen size
+
+## Technologies Used
+
+- **Backend**: Python 3.x with Flask 3.0.0
+- **Frontend**: HTML5, CSS3
+- **Dependencies**: See requirements.txt
+
+## Prerequisites
+
+- Python 3.x
+- pip (Python package installer)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd guessing_number
+   ```
+
+2. Create a virtual environment (recommended):
+   ```bash
+   python -m venv venv
+   ```
+
+3. Activate the virtual environment:
+   - Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
+   - Unix or MacOS:
+     ```bash
+     source venv/bin/activate
+     ```
+
+4. Install required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Running the Game
+
+1. Start the Flask application:
+   ```bash
+   python app.py
+   ```
+
+2. Open your web browser and navigate to:
+   ```
+   http://localhost:5000
+   ```
 
 ## How to Play
 
-1. Run the Python script `guess_number.py`.
-2. The computer will welcome you and state that it's thinking of a number between 1 and 100.
-3. You input your guess.
-4. The computer will inform you if your guess is too low or too high, giving you hints to narrow down your guesses.
-5. Keep guessing until you correctly guess the number.
-6. After guessing correctly, the computer will display the number of attempts it took you to guess the correct number.
-7. You can choose to play again or exit the game.
+1. When you start the game, the computer will randomly select a number between 1 and 100
+2. Enter your guess in the input field
+3. Click "Submit Guess" or press Enter
+4. The game will tell you if your guess is:
+   - Too high
+   - Too low
+   - Correct!
+5. Keep guessing until you find the correct number
+6. Click "Start New Game" to play again
 
-## Implementation
+## Game Rules
 
-The game is implemented in Python and utilizes the `random` module to generate a random number within the specified range. It consists of a single function `guess_the_number()` that contains the game logic.
+- You can only enter numbers between 1 and 100
+- Each guess counts as an attempt
+- The game keeps track of how many attempts you make
+- You can start a new game at any time
 
-## Notes
-Make sure you have Python installed on your system to run the game.
-This game is suitable for beginners learning Python or programming concepts like loops, conditionals, and functions.
-Have fun playing "Guess Number"!
+## Project Structure
+
+```
+guessing_number/
+│
+├── app.py              # Main Flask application
+├── requirements.txt    # Python dependencies
+├── README.md          # Project documentation
+│
+├── static/
+│   └── styles.css     # CSS styling
+│
+└── templates/
+    └── index.html     # Game interface template
+```
+
+## Customization
+
+You can customize the game by:
+1. Modifying the CSS in `static/styles.css` to change the appearance
+2. Adjusting the number range in `app.py`
+3. Adding new features like:
+   - Different difficulty levels
+   - High score tracking
+   - Multiple players
+
+## Troubleshooting
+
+- If the server doesn't start, make sure no other application is using port 5000
+- If styles don't load, clear your browser cache
+- For any Python errors, ensure all dependencies are correctly installed
+
+## Contributing
+
+Feel free to fork this project and submit pull requests with improvements. Some ideas for contributions:
+- Add difficulty levels
+- Implement a scoring system
+- Add sound effects
+- Create a multiplayer mode
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Authors
+
+- [Your Name]
+
+## Acknowledgments
+
+- Flask Documentation
+- Python Community
+- Modern CSS Techniques
+
+---
+
+Happy Gaming! 
