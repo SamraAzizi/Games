@@ -1,45 +1,115 @@
-**Flappy Bird Game**
-=====================
+# Flappy Bird Web Game
 
-**Overview**
------------
+A modern web-based implementation of the classic Flappy Bird game using Flask and HTML5 Canvas.
 
-This is a Python implementation of the popular mobile game Flappy Bird using the Pygame library. The game is designed to be played on a desktop or laptop computer.
 
-**Gameplay**
----------
 
-The game is simple: control a bird that must navigate through a series of pipes by tapping the space bar or up arrow key to flap its wings. The goal is to avoid colliding with the pipes and score as many points as possible.
+## Features
 
-**Features**
----------
+- Smooth, responsive gameplay
+- Modern visual design with gradients and animations
+- Score tracking
+- Instant restart functionality
+- Mobile-friendly controls
+- Consistent game difficulty
+- Animated bird character with rotation
+- Beautifully styled pipes with caps and gradients
 
-* Welcome screen with a message and a bird sprite
-* Main game screen with scrolling pipes and a scoring system
-* Sound effects for flapping, hitting pipes, and scoring points
-* Game over screen with an option to restart
+## Technologies Used
 
-**Requirements**
-------------
+- **Backend:**
+  - Python 3.x
+  - Flask 3.0.0
+  - Werkzeug 3.0.1
 
-* Python 3.x
-* Pygame library (install with `pip install pygame`)
-* Assets folder with the following files:
-	+ `assets/sprites/bird.png` (bird sprite)
-	+ `assets/sprites/background.png` (background image)
-	+ `assets/sprites/pipe.png` (pipe sprite)
-	+ `assets/sprites/message.png` (message sprite)
-	+ `assets/sprites/base.png` (base sprite)
- + 	+ `assets/audio/die.wav` (die sound effect)
-	+ `assets/audio/hit.wav` (hit sound effect)
-	+ `assets/audio/point.wav` (point sound effect)
-	+ `assets/audio/swoosh.wav` (swoosh sound effect)
-	+ `assets/audio/wing.wav` (wing sound effect)
+- **Frontend:**
+  - HTML5 Canvas
+  - JavaScript (ES6+)
+  - CSS3 with modern features (Flexbox, Gradients)
 
-**How to Run**
--------------
-1. Save this code in a file named `flappy_bird.py`.
-2. Create an `assets` folder with the required files.
-3. Run the game by executing `python flappy_bird.py` in your terminal or command prompt.
+## Installation
 
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd flappyBird
+   ```
+
+2. Create a virtual environment (recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Running the Game
+
+1. Start the Flask server:
+   ```bash
+   python app.py
+   ```
+
+2. Open your web browser and navigate to:
+   ```
+   http://localhost:5000
+   ```
+
+## How to Play
+
+- Press the **Space bar** or **Up Arrow** key to make the bird fly
+- Click or tap the screen (for mobile devices)
+- Navigate through the pipes without hitting them
+- Don't hit the ground!
+- Try to achieve the highest score possible
+- When game over, press any key or click to restart
+
+## Game Controls
+
+| Action | Control |
+|--------|---------|
+| Flap Wings | Space / Up Arrow / Click |
+| Start Game | Space / Up Arrow / Click |
+| Restart Game | Space / Up Arrow / Click (after game over) |
+
+## Project Structure
+
+```
+flappyBird/
+├── app.py              # Flask application main file
+├── requirements.txt    # Python dependencies
+├── README.md          # Project documentation
+├── assets/            # Game assets directory
+│   ├── sprites/       # Image assets
+│   └── game.js        # Game logic
+└── templates/         # HTML templates
+    └── index.html     # Main game page
+```
+
+## Game Mechanics
+
+- Bird automatically falls due to gravity
+- Each successful pipe passage scores one point
+- Collision with pipes or ground ends the game
+- Bird rotates based on movement for realistic animation
+- Pipes maintain consistent gaps for fair gameplay
+- Score is prominently displayed during gameplay
+
+## Technical Details
+
+### Bird Physics
+- Gravity constant: 0.25
+- Flap speed: -4.6
+- Maximum velocity: 10
+- Rotation range: -25° to 90°
+
+### Pipe Generation
+- Consistent gap size: 120px
+- Minimum height: 50px
+- Speed: 2px per frame
+- Width: 52px
+- Spawn interval: Every 100 frames
 
