@@ -112,3 +112,4 @@ You can customize the game by:
 - If the server doesn't start, make sure no other application is using port 5000
 - If styles don't load, clear your browser cache
 - For any Python errors, ensure all dependencies are correctly installed
+
