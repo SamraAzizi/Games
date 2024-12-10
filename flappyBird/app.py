@@ -19,3 +19,4 @@ def update_game_state():
 
 if __name__ == '__main__':
     app.run(debug=True)
+

@@ -113,3 +113,4 @@ flappyBird/
 - Width: 52px
 - Spawn interval: Every 100 frames
 
+
