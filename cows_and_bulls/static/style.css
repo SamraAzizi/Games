@@ -79,12 +79,21 @@ button:active {
     transform: translateY(0);
 }
 
+button.new-game {
+    background-color: var(--success-color);
+}
+
+button.new-game:hover {
+    background-color: #27ae60;
+}
+
 #message {
     margin: 20px 0;
     padding: 15px;
     border-radius: 8px;
     font-weight: 500;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 #message.success {
@@ -123,7 +132,7 @@ button:active {
     background: white;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 #guessHistory li:hover {
@@ -152,9 +161,39 @@ button:active {
     color: var(--text-color);
 }
 
+/* Animations */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.celebrate {
+    animation: celebrate 1s ease-in-out;
+}
+
+@keyframes celebrate {
+    0% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    50% { background: linear-gradient(135deg, #2ecc71 0%, #3498db 100%); }
+    100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+}
+
+/* Responsive Design */
 @media (max-width: 480px) {
     .container {
         padding: 1rem;
+        margin: 10px;
     }
 
     h1 {

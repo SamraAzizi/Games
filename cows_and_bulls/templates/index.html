@@ -5,115 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cows and Bulls Game</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f0f2f5;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #1a73e8;
-            text-align: center;
-        }
-        .game-controls {
-            display: flex;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        input {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        button {
-            padding: 8px 16px;
-            background-color: #1a73e8;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #1557b0;
-        }
-        #message {
-            margin: 20px 0;
-            padding: 10px;
-            border-radius: 4px;
-        }
-        .success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        .history {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-        }
-        .rules {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e7f3ff;
-            border-radius: 4px;
-        }
-        .shake {
-            animation: shake 0.5s ease-in-out;
-        }
-        @keyframes shake {
-            0% {
-                transform: translateX(0);
-            }
-            20% {
-                transform: translateX(-5px);
-            }
-            40% {
-                transform: translateX(5px);
-            }
-            60% {
-                transform: translateX(-5px);
-            }
-            80% {
-                transform: translateX(5px);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        @keyframes celebrate {
-            0% {
-                background-color: #f0f2f5;
-            }
-            50% {
-                background-color: #e7f3ff;
-            }
-            100% {
-                background-color: #f0f2f5;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
@@ -131,7 +23,7 @@
         <div class="game-controls">
             <input type="text" id="guess" placeholder="Enter 4-digit number" maxlength="4">
             <button onclick="makeGuess()">Make Guess</button>
-            <button onclick="startNewGame()" style="background-color: #2ecc71;">New Game</button>
+            <button onclick="startNewGame()" class="new-game">New Game</button>
         </div>
 
         <div id="message"></div>
@@ -212,8 +104,8 @@
         }
 
         function celebrateWin() {
-            // Add confetti or celebration animation here if desired
-            document.body.style.animation = 'celebrate 1s ease-in-out';
+            document.body.classList.add('celebrate');
+            setTimeout(() => document.body.classList.remove('celebrate'), 1000);
         }
 
         // Add event listener for Enter key
